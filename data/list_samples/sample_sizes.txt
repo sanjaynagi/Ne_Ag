@@ -1,0 +1,16 @@
+   78 AOcol_sample_list
+   75 BFcol_sample_list
+   92 BFgam_sample_list
+   71 CIcol_sample_list
+  297 CMgam_sample_list
+   24 FRgam_sample_list
+   69 GAgam_sample_list
+   55 GHcol_sample_list
+   12 GHgam_sample_list
+   65 GM_sample_list
+    4 GNcol_sample_list
+   40 GNgam_sample_list
+    9 GQgam_sample_list
+   91 GW_sample_list
+   48 KE_sample_list
+  112 UGgam_sample_list
