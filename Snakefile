@@ -1,6 +1,7 @@
 pops=['KE', 'UGgam', 'FRgam', 'GNgam', 'GHcol']
 chroms=['3L', '3R']
 
+ruleorder: unzip_vcfs > downsample
 
 rule all:
 	input: 
@@ -8,7 +9,7 @@ rule all:
 
 rule all_ldne:
 	input:
-		expand("Ag_LDNe_{pop}_{chrom}.out", pop=pops, chrom=chroms)
+		expand("analysis/LDNe/Ag_LDNe_{pop}_{chrom}.out", pop=pops, chrom=chroms)
 
 
 ############# subset vcfs #############
@@ -70,29 +71,29 @@ rule restrict_noncoding:
 	input:
 		"data/vcfs/{pop}_{chrom}.vcf.gz"
 	output:
-		pipe("data/vcfs/noncoding/{pop}_{chrom}_noncoding.vcf.gz")
+		pipe("data/noncoding/{pop}_{chrom}_noncoding.vcf")
 	log:
 		"logs/gatk_noncoding/{pop}_{chrom}.log"
 	group:
 		'downsample'
 	shell:
 		"gatk SelectVariants -V {input} -O {output} -XL ~/reference/regions/Ag_coding_and_regulatory.intervals 2> {log}"
-
 rule downsample:
 	input:
-		"data/vcfs/{pop}_{chrom}_noncoding.vcf.gz"
+		vcf="data/noncoding/{pop}_{chrom}_noncoding.vcf",
+		header="data/header.vcf"
 	output:
-		"data/vcfs/noncoding/downsample/{pop}_{chrom}_random.vcf"
+		"data/noncoding/downsample/{pop}_random_{chrom}.vcf"
 	log:
 		"logs/shuf_downsample/{pop}_{chrom}.log"
 	group:
 		'downsample'
 	shell:
-		"gzip -d {data/vcfs/{wildcards.pop}_{wildcards.chrom}_noncoding.vcf.gz} | shuf -n 10000 > {output} 2> {log}"
+		"(tail -n +83 {input.vcf} | shuf -n 10000 | cat {input.header} - > {output}) 2> {log}"
 
 rule vcf2genepop:
 	input:
-		"data/vcfs/noncoding/downsample/{pop}_{chrom}_random.vcf"
+		"data/noncoding/downsample/{pop}_random_{chrom}.vcf"
 	output:
 		"data/genepops/{pop}_{chrom}.gen"
 	log:
@@ -137,7 +138,7 @@ rule run_ldne:
 		dat="data/dat/{pop}_{chrom}.dat",
 		batch="analysis/LDNe/ag_batch_{pop}_{chrom}.txt"
 	output:
-		"Ag_LDNe_{pop}_{chrom}.out"
+		"analysis/LDNe/Ag_LDNe_{pop}_{chrom}.out"
 	group:"LDNe"
 	log:
 		"logs/ldne/{pop}_{chrom}.log"

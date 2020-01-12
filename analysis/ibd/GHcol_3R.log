@@ -1,0 +1,26 @@
+Program           :  ibdseq r1206  (max memory: 10727 MB)
+Start Time        :  01:51 PM GMT on 12 Jan 2020
+
+Parameters
+  gt              :  data/vcfs/GHcol_3R.vcf
+  out             :  analysis/ibd/GHcol_3R
+  minalleles      :  2
+  ibdlod          :  3.0
+  ibdtrim         :  0.0
+  errormax        :  0.001
+  errorprop       :  0.25
+  r2window        :  500
+  r2max           :  0.15
+  nthreads        :  4
+
+Data Statistics
+  samples         :  55
+  markers         :  3689036
+   >= minalleles  :  2458233
+   LD-thinned     :  250745  (7% of markers)
+  segments/sample :  454.6
+  mean IBD length :  0.06 Mb
+  mean IBD depth  :  1.1
+
+Wallclock Time:   :  23 minutes 54 seconds
+End Time          :  02:15 PM GMT on 12 Jan 2020
