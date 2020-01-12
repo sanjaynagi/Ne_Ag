@@ -62,7 +62,7 @@ rule run_ibdne:
 		"logs/ibdne/{pop}.ibdne.log"
 	threads:8
 	shell:
-		"cat {input.ibd} | java -jar ~/apps/ibdne.19Sep19.268.jar map={input.gen_map} out={wildcards.pop}_ibdne nthreads={threads} 2> {log}"
+		"cat {input.ibd} | java -jar ~/apps/ibdne.19Sep19.268.jar map={input.gen_map} out=analysis/ibdne/{wildcards.pop}_ibdne nthreads={threads} 2> {log}"
 
 
 ############### noncoding, downsample to genepop and dat ############
@@ -88,7 +88,7 @@ rule downsample:
 	group:
 		'downsample'
 	shell:
-		"gzip -d {input} | shuf -n 10000 > {output} 2> {log}"
+		"gzip -d {data/vcfs/{wildcards.pop}_{wildcards.chrom}_noncoding.vcf.gz} | shuf -n 10000 > {output} 2> {log}"
 
 rule vcf2genepop:
 	input:
