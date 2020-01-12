@@ -1,0 +1,26 @@
+Program           :  ibdseq r1206  (max memory: 10727 MB)
+Start Time        :  10:32 PM GMT on 08 Nov 2019
+
+Parameters
+  gt              :  ../data/FRgam_3L.vcf
+  out             :  FRgam_ibd_3L
+  minalleles      :  2
+  ibdlod          :  3.0
+  ibdtrim         :  0.0
+  errormax        :  0.001
+  errorprop       :  0.25
+  r2window        :  500
+  r2max           :  0.15
+  nthreads        :  1
+
+Data Statistics
+  samples         :  24
+  markers         :  827444
+   >= minalleles  :  650864
+   LD-thinned     :  14279  (2% of markers)
+  segments/sample :  52.0
+  mean IBD length :  0.35 Mb
+  mean IBD depth  :  0.8
+
+Wallclock Time:   :  2 minutes 15 seconds
+End Time          :  10:35 PM GMT on 08 Nov 2019

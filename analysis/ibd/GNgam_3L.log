@@ -1,0 +1,26 @@
+Program           :  ibdseq r1206  (max memory: 10727 MB)
+Start Time        :  10:54 AM GMT on 21 Nov 2019
+
+Parameters
+  gt              :  ../data/GNgam_3L.vcf
+  out             :  GNgam_ibd_3L
+  minalleles      :  2
+  ibdlod          :  3.0
+  ibdtrim         :  0.0
+  errormax        :  0.001
+  errorprop       :  0.25
+  r2window        :  500
+  r2max           :  0.15
+  nthreads        :  1
+
+Data Statistics
+  samples         :  40
+  markers         :  3082769
+   >= minalleles  :  1609250
+   LD-thinned     :  176721  (6% of markers)
+  segments/sample :  45.7
+  mean IBD length :  0.19 Mb
+  mean IBD depth  :  0.2
+
+Wallclock Time:   :  15 minutes 31 seconds
+End Time          :  11:10 AM GMT on 21 Nov 2019

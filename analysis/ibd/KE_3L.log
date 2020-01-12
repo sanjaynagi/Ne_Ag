@@ -1,0 +1,26 @@
+Program           :  ibdseq r1206  (max memory: 10727 MB)
+Start Time        :  04:14 PM GMT on 08 Nov 2019
+
+Parameters
+  gt              :  ../data/KE_3L.vcf
+  out             :  KE_ibd_3L
+  minalleles      :  2
+  ibdlod          :  3.0
+  ibdtrim         :  0.0
+  errormax        :  0.001
+  errorprop       :  0.25
+  r2window        :  500
+  r2max           :  0.15
+  nthreads        :  1
+
+Data Statistics
+  samples         :  48
+  markers         :  706000
+   >= minalleles  :  598397
+   LD-thinned     :  8985  (1% of markers)
+  segments/sample :  104.6
+  mean IBD length :  1.36 Mb
+  mean IBD depth  :  6.9
+
+Wallclock Time:   :  6 minutes 48 seconds
+End Time          :  04:20 PM GMT on 08 Nov 2019

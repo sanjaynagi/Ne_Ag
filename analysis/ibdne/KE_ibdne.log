@@ -1,0 +1,111 @@
+Program           :  ibdne.19Sep19.268.jar
+Author            :  Copyright (C) 2015 Brian L. Browning
+Available memory  :  10727 MB
+Start Time        :  06:32 PM GMT on 09 Nov 2019
+
+Parameters
+  map             :  /home/sanjay/recombination_maps/Ag_genetic.map
+  out             :  KE_ibdne
+  mincm           :  2.0
+  minregion       :  50.0
+  trimcm          :  0.2
+  filtersample    :  true
+  npairs          :  data dependent
+  nits            :  1000
+  nboots          :  80
+  gmax            :  300
+  seed            :  -99999
+  nthreads        :  1
+
+Reading IBD segments               Done (elapsed time: 1 second)
+Samples           : 48
+segments read     : 9978
+segments analyzed : 3406
+
+Estimating Ne [original data]      Done (elapsed time: 18 seconds)
+Estimating Ne [bootstrap samples]
+
+Original  fit 13.4
+Bootstrap fit 13.4
+Bootstrap fit 6.4
+Bootstrap fit 13.4
+Bootstrap fit 21.9
+Bootstrap fit 13.4
+Bootstrap fit 6.4
+Bootstrap fit 6.4
+Bootstrap fit 13.4
+Bootstrap fit 6.4
+Bootstrap fit 6.4
+Bootstrap fit 21.9
+Bootstrap fit 6.4
+Bootstrap fit 13.4
+Bootstrap fit 13.4
+Bootstrap fit 13.4
+Bootstrap fit 13.4
+Bootstrap fit 21.9
+Bootstrap fit 13.4
+Bootstrap fit 13.4
+Bootstrap fit 6.4
+Bootstrap fit 21.9
+Bootstrap fit 6.4
+Bootstrap fit 13.4
+Bootstrap fit 13.4
+Bootstrap fit 6.4
+Bootstrap fit 6.4
+Bootstrap fit 21.9
+Bootstrap fit 13.4
+Bootstrap fit 13.4
+Bootstrap fit 6.4
+Bootstrap fit 13.4
+Bootstrap fit 13.4
+Bootstrap fit 6.4
+Bootstrap fit 21.9
+Bootstrap fit 13.4
+Bootstrap fit 13.4
+Bootstrap fit 6.4
+Bootstrap fit 13.4
+Bootstrap fit 21.9
+Bootstrap fit 13.4
+Bootstrap fit 6.4
+Bootstrap fit 13.4
+Bootstrap fit 6.4
+Bootstrap fit 13.4
+Bootstrap fit 6.4
+Bootstrap fit 6.4
+Bootstrap fit 21.9
+Bootstrap fit 21.9
+Bootstrap fit 13.4
+Bootstrap fit 6.4
+Bootstrap fit 21.9
+Bootstrap fit 21.9
+Bootstrap fit 21.9
+Bootstrap fit 6.4
+Bootstrap fit 13.4
+Bootstrap fit 6.4
+Bootstrap fit 13.4
+Bootstrap fit 13.4
+Bootstrap fit 13.4
+Bootstrap fit 13.4
+Bootstrap fit 13.4
+Bootstrap fit 6.4
+Bootstrap fit 13.4
+Bootstrap fit 13.4
+Bootstrap fit 13.4
+Bootstrap fit 6.4
+Bootstrap fit 13.4
+Bootstrap fit 13.4
+Bootstrap fit 6.4
+Bootstrap fit 13.4
+Bootstrap fit 13.4
+Bootstrap fit 6.4
+Bootstrap fit 21.9
+Bootstrap fit 13.4
+Bootstrap fit 21.9
+Bootstrap fit 13.4
+Bootstrap fit 21.9
+Bootstrap fit 13.4
+Bootstrap fit 13.4
+Bootstrap fit 6.4
+
+Elapsed Time      :  25 minutes 31 seconds
+End Time          :  06:58 PM GMT on 09 Nov 2019

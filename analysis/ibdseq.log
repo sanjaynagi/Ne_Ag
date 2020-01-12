@@ -1,0 +1,81 @@
+Program           :  ibdseq r1206  (max memory: 10727 MB)
+Start Time        :  10:31 AM GMT on 21 Nov 2019
+
+Parameters
+  gt              :  ../data/GNgam_3R.vcf
+  out             :  GNgam_ibd_3R
+  minalleles      :  2
+  ibdlod          :  3.0
+  ibdtrim         :  0.0
+  errormax        :  0.001
+  errorprop       :  0.25
+  r2window        :  500
+  r2max           :  0.15
+  nthreads        :  1
+
+Estimated finish  : 11:33 AM GMT on 21 Nov 2019
+
+Data Statistics
+  samples         :  40
+  markers         :  4216093
+   >= minalleles  :  2243053
+   LD-thinned     :  239830  (6% of markers)
+  segments/sample :  100.7
+  mean IBD length :  0.12 Mb
+  mean IBD depth  :  0.4
+
+Wallclock Time:   :  23 minutes 9 seconds
+End Time          :  10:54 AM GMT on 21 Nov 2019
+Program           :  ibdseq r1206  (max memory: 10727 MB)
+Start Time        :  10:54 AM GMT on 21 Nov 2019
+
+Parameters
+  gt              :  ../data/GNgam_3L.vcf
+  out             :  GNgam_ibd_3L
+  minalleles      :  2
+  ibdlod          :  3.0
+  ibdtrim         :  0.0
+  errormax        :  0.001
+  errorprop       :  0.25
+  r2window        :  500
+  r2max           :  0.15
+  nthreads        :  1
+
+Estimated finish  : 11:42 AM GMT on 21 Nov 2019
+
+Data Statistics
+  samples         :  40
+  markers         :  3082769
+   >= minalleles  :  1609250
+   LD-thinned     :  176721  (6% of markers)
+  segments/sample :  45.7
+  mean IBD length :  0.19 Mb
+  mean IBD depth  :  0.2
+
+Wallclock Time:   :  15 minutes 31 seconds
+End Time          :  11:10 AM GMT on 21 Nov 2019
+*************************************
+*                SNeP               *
+*                v1.1               *
+*       barbatom@cardiff.ac.uk      *
+*************************************
+
+Thu Nov 21 14:18:31 2019
+
+Parsing loci for MAF < 0.05...done.
+Loci excluded for MAF < 0.05 or missing data: 13893
+Setting seed to: 1750106004
+
+Selected options:
+-ped ../data/plink_files/FRgam_3L.ped
+-phased +
+
+Number of Chromosomes detected: 1
+
+
+* Analysing chromosome 3L
+Parsing loci for maxSNP: 100000...done.
+Number of loci prior thinning: 571225
+Number of loci removed: 471225
+
+Number of SNP pairs to parse: 1013464478

@@ -1,0 +1,189 @@
+Program           :  ibdseq r1206  (max memory: 10727 MB)
+Start Time        :  04:04 PM GMT on 08 Nov 2019
+
+Parameters
+  gt              :  ../data/KE_3R.vcf
+  out             :  KE_ibd_3R
+  minalleles      :  2
+  ibdlod          :  3.0
+  ibdtrim         :  0.0
+  errormax        :  0.001
+  errorprop       :  0.25
+  r2window        :  500
+  r2max           :  0.15
+  nthreads        :  1
+
+Estimated finish  : 04:41 PM GMT on 08 Nov 2019
+
+Data Statistics
+  samples         :  48
+  markers         :  955199
+   >= minalleles  :  788271
+   LD-thinned     :  12038  (1% of markers)
+  segments/sample :  114.2
+  mean IBD length :  1.63 Mb
+  mean IBD depth  :  7.4
+
+Wallclock Time:   :  9 minutes 22 seconds
+End Time          :  04:14 PM GMT on 08 Nov 2019
+Program           :  ibdseq r1206  (max memory: 10727 MB)
+Start Time        :  04:14 PM GMT on 08 Nov 2019
+
+Parameters
+  gt              :  ../data/KE_3L.vcf
+  out             :  KE_ibd_3L
+  minalleles      :  2
+  ibdlod          :  3.0
+  ibdtrim         :  0.0
+  errormax        :  0.001
+  errorprop       :  0.25
+  r2window        :  500
+  r2max           :  0.15
+  nthreads        :  1
+
+Estimated finish  : 04:39 PM GMT on 08 Nov 2019
+
+Data Statistics
+  samples         :  48
+  markers         :  706000
+   >= minalleles  :  598397
+   LD-thinned     :  8985  (1% of markers)
+  segments/sample :  104.6
+  mean IBD length :  1.36 Mb
+  mean IBD depth  :  6.9
+
+Wallclock Time:   :  6 minutes 48 seconds
+End Time          :  04:20 PM GMT on 08 Nov 2019
+cat: KE_ibd_3R: No such file or directory
+cat: KE_ibd_3L: No such file or directory
+Program           :  ibdseq r1206  (max memory: 10727 MB)
+Start Time        :  04:20 PM GMT on 08 Nov 2019
+
+Parameters
+  gt              :  ../data/UGgam_3R.vcf
+  out             :  UGgam_ibd_3R
+  minalleles      :  2
+  ibdlod          :  3.0
+  ibdtrim         :  0.0
+  errormax        :  0.001
+  errorprop       :  0.25
+  r2window        :  500
+  r2max           :  0.15
+  nthreads        :  1
+
+Estimated finish  : 02:19 AM GMT on 09 Nov 2019
+
+Data Statistics
+  samples         :  112
+  markers         :  5830358
+   >= minalleles  :  3663386
+   LD-thinned     :  659514  (11% of markers)
+  segments/sample :  2028.9
+  mean IBD length :  0.04 Mb
+  mean IBD depth  :  2.8
+
+Wallclock Time:   :  3 hours 19 minutes 38 seconds
+End Time          :  07:40 PM GMT on 08 Nov 2019
+Program           :  ibdseq r1206  (max memory: 10727 MB)
+Start Time        :  07:40 PM GMT on 08 Nov 2019
+
+Parameters
+  gt              :  ../data/UGgam_3L.vcf
+  out             :  UGgam_ibd_3L
+  minalleles      :  2
+  ibdlod          :  3.0
+  ibdtrim         :  0.0
+  errormax        :  0.001
+  errorprop       :  0.25
+  r2window        :  500
+  r2max           :  0.15
+  nthreads        :  1
+
+Estimated finish  : 03:21 AM GMT on 09 Nov 2019
+
+Data Statistics
+  samples         :  112
+  markers         :  4327443
+   >= minalleles  :  2661621
+   LD-thinned     :  497393  (11% of markers)
+  segments/sample :  1547.9
+  mean IBD length :  0.04 Mb
+  mean IBD depth  :  2.3
+
+Wallclock Time:   :  2 hours 48 minutes 49 seconds
+End Time          :  10:29 PM GMT on 08 Nov 2019
+cat: UGgam_ibd_3R: No such file or directory
+cat: UGgam_ibd_3L: No such file or directory
+Program           :  ibdseq r1206  (max memory: 10727 MB)
+Start Time        :  10:29 PM GMT on 08 Nov 2019
+
+Parameters
+  gt              :  ../data/FRgam_3R.vcf
+  out             :  FRgam_ibd_3R
+  minalleles      :  2
+  ibdlod          :  3.0
+  ibdtrim         :  0.0
+  errormax        :  0.001
+  errorprop       :  0.25
+  r2window        :  500
+  r2max           :  0.15
+  nthreads        :  1
+
+Estimated finish  : 10:39 PM GMT on 08 Nov 2019
+
+Data Statistics
+  samples         :  24
+  markers         :  1145707
+   >= minalleles  :  900648
+   LD-thinned     :  19804  (2% of markers)
+  segments/sample :  70.9
+  mean IBD length :  0.27 Mb
+  mean IBD depth  :  0.8
+
+Wallclock Time:   :  3 minutes 22 seconds
+End Time          :  10:32 PM GMT on 08 Nov 2019
+Program           :  ibdseq r1206  (max memory: 10727 MB)
+Start Time        :  10:32 PM GMT on 08 Nov 2019
+
+Parameters
+  gt              :  ../data/FRgam_3L.vcf
+  out             :  FRgam_ibd_3L
+  minalleles      :  2
+  ibdlod          :  3.0
+  ibdtrim         :  0.0
+  errormax        :  0.001
+  errorprop       :  0.25
+  r2window        :  500
+  r2max           :  0.15
+  nthreads        :  1
+
+Estimated finish  : 10:39 PM GMT on 08 Nov 2019
+
+Data Statistics
+  samples         :  24
+  markers         :  827444
+   >= minalleles  :  650864
+   LD-thinned     :  14279  (2% of markers)
+  segments/sample :  52.0
+  mean IBD length :  0.35 Mb
+  mean IBD depth  :  0.8
+
+Wallclock Time:   :  2 minutes 15 seconds
+End Time          :  10:35 PM GMT on 08 Nov 2019
+cat: FRgam_ibd_3R: No such file or directory
+cat: FRgam_ibd_3L: No such file or directory
+Program           :  ibdseq r1206  (max memory: 10727 MB)
+Start Time        :  10:35 PM GMT on 08 Nov 2019
+
+Parameters
+  gt              :  ../data/GQgam_3R.vcf
+  out             :  GQgam_ibd_3R
+  minalleles      :  2
+  ibdlod          :  3.0
+  ibdtrim         :  0.0
+  errormax        :  0.001
+  errorprop       :  0.25
+  r2window        :  500
+  r2max           :  0.15
+  nthreads        :  1
+
