@@ -36,7 +36,7 @@ rule unzip_vcfs:
 	group:
 		"ibd"
 	shell:
-		"gzip -d {input} > {output}"
+		"gzip -d {wildcards.pop}_{wildcards.chrom}.vcf.gz > {output}"
 
 rule ibd_segments:
 	input:
@@ -73,6 +73,8 @@ rule restrict_noncoding:
 		pipe("data/vcfs/noncoding/{pop}_{chrom}_noncoding.vcf.gz")
 	log:
 		"logs/gatk_noncoding/{pop}_{chrom}.log"
+	group:
+		'downsample'
 	shell:
 		"gatk SelectVariants -V {input} -O {output} -XL ~/reference/regions/Ag_coding_and_regulatory.intervals 2> {log}"
 
@@ -83,6 +85,8 @@ rule downsample:
 		"data/vcfs/noncoding/downsample/{pop}_{chrom}_random.vcf"
 	log:
 		"logs/shuf_downsample/{pop}_{chrom}.log"
+	group:
+		'downsample'
 	shell:
 		"gzip -d {input} | shuf -n 10000 > {output} 2> {log}"
 
@@ -96,7 +100,7 @@ rule vcf2genepop:
 	group:
 		"convert"
 	shell:
-		"perl analysis/vcf2genepop.pl vcf={input} pop=wildcards.pop > {output} 2> {log}"
+		"perl analysis/vcf2genepop.pl vcf={input} pop={wildcards.pop} > {output} 2> {log}"
 
 rule genepop2dat:
 	input:
