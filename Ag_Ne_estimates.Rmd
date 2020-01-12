@@ -1,0 +1,190 @@
+---
+title: "Ne estimates of Ag1000g"
+author: "Sanjay C Nagi"
+date: "16/12/2019"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(data.table)
+library(glue)
+library(knitr)
+library(kableExtra)
+library(gridExtra)
+library(patchwork)
+```
+
+In the context of vector control, we would like to estimate effective population sizes of *Anopheles gambiae* populations, as well as historical demographic events. Here, I will focus on methods to estimate current or recent effective population size and their application to the Kenyan, Ugandan, Mayotte and Guinea bissau populations of Ag1000g. The effective population size quantifies the extent of genetic drift in a population, and is related to the number of actively breeding individuals.
+
+I will focus on:
+
+- LDNe (implemented in NeEstimator) (Waples & Do, 2008)
+- SNeP (Barbato et al., 2015)
+- IDBNe (Browning & Browning, 2015)
+
+### Methods
+
+SNPs were restricted to non-coding regions, to avoid possible effects of selection & linked selection. In an ideal world, they would have been restricted to a certain distance away from coding regions.SNeP uses 10000 SNPs. LDNe requires conversion to genepop/fstat format.
+
+Segments of IBD were detected using the program IBDseq (Browning & Browning, 2013).
+
+### Results
+#### LDNe
+
+Estimates of current Ne from the program LDNe are shown in the table below. As would be expected, the Ugandan population shows the highest Ne by far, followed by Guinea bissau. The Mayotte island population is also expectedly small-ish - 142-187.4. 
+
+The Kenyan population, which is known to have undergone a severe bottleneck, showed an incredibly low Ne estimate of just ~2.5(!). This population has extremely high runs of homozygosity (ROH), and low genetic diversity generally, however, this estimate further displays how unusual this population is. 
+
+
+```{r LDNe, echo=FALSE}
+pops = c('UGgam', 'KE', 'FRgam', 'GNgam')
+chroms = c('3L', '3R')
+
+ldne = fread("LDNe/LDNe_results") %>% separate(., pop, into = c('Population', 'Chromosome'), sep = "_")
+
+colnames(ldne) = c("Population", "Chromosome", "Ne estimate", "lower 95% CI", "upper 95% CI")
+
+
+kable(ldne, digits = 4) %>% kable_styling()
+
+```
+
+### SNeP
+
+SNeP produces Ne estimates for the last 1000 generations, so I have plotted these (below), and also took the harmonic mean of the 1000 generations and the last 50.
+
+```{r SNeP, echo=FALSE}
+
+ne = list()
+#read data 
+for (pop in pops){
+  for (chrom in chroms){
+      ne[[pop]][[chrom]] = fread(glue("SNeP_files/{pop}_{chrom}.NeAll"))
+      }
+}
+
+snep = NULL
+recentne = list()
+for (pop in pops){
+  for (chrom in chroms){
+    recentne[[pop]][[chrom]] = ne[[pop]][[chrom]][1:10,]
+    hmean= 1/mean(1/ne[[pop]][[chrom]]$Ne)
+    recenthmean = 1/mean(1/recentne[[pop]][[chrom]]$Ne)
+    rw = cbind(pop, chrom, hmean, recenthmean)
+    snep = rbind(snep, rw)
+  }
+}
+colnames(snep) = c("Population", "Chromosome", "overall harmonic mean", "recent Ne")
+
+kable(snep, digits=4) %>% kable_styling()
+
+```
+
+All SNeP outputs showed a steady decline in Ne over the last 1000 generations (~83 years), for all populations. I am not sure this is entirely plausible, though all populations have probably been affected by vector control to some degree.
+
+Despite the trajectories, the patterns in Ne estimates agree with LDNe, if we take the harmonic mean of all points, or just recent (last ~50 generations), the Ne sizes are as follows:
+
+#### Uganda > Guinea-Bissau > Mayotte > Kenya
+
+```{r plots, echo=FALSE}
+
+plts = list()
+
+for (pop in pops){
+  for (chrom in chroms){
+    plot = ggplot(ne[[pop]][[chrom]], aes(x=GenAgo, y=Ne)) + geom_line() +
+      ggtitle(glue("{pop} {chrom} SNeP"))
+    
+    plts[[pop]][[chrom]] = plot
+      }
+}
+
+(plts[['KE']][['3L']] | plts[['KE']][['3R']]) /
+  (plts[['FRgam']][['3L']] | plts[['FRgam']][['3R']])/
+  (plts[['UGgam']][['3L']] | plts[['UGgam']][['3R']])/
+  (plts[['GNgam']][['3L']] | plts[['GNgam']][['3R']])
+
+#ml1 <- marrangeGrob(flatten(plot_list), nrow = 4, ncol = 2)
+#ml1
+
+```
+
+
+### IBDNe
+
+IBDNe produces estimates between 4-300 generations ago. The estimates here again seem slightly unusual, particularly in the large recent expansions predicted for the Mayotte and Uganda populations. 
+
+Again, the kenyan and mayotte populations generally have much lower Ne estimates, as we would expect. 
+
+```{r IBDNe, echo=FALSE, fig.cap="Figure 3. Effective population size trajectories from the program IBDNe"}
+
+ne = list()
+
+#read data 
+for (pop in pops){
+  ne[[pop]] = fread(glue("ibdne/{pop}_ibdne.ne"))
+}
+
+plts=list()
+
+for (pop in pops){
+  if (pop != 'GNgam'){  
+  plot = ggplot(ne[[pop]], aes(GEN)) + 
+      geom_line(aes(y=NE)) + 
+      geom_ribbon(aes(ymin=`LWR-95%CI`, ymax=`UPR-95%CI`, x=GEN, fill="band", alpha=0.5)) +
+      ggtitle(glue("{pop} IBDNe")) +
+      scale_y_continuous(name="Ne estimate",
+                       breaks = seq(0, max(ne[[pop]]$NE), by=max(ne[[pop]]$NE)/10),
+                       labels = scales::comma) +
+    theme(legend.position = 'none')
+  }
+  else 
+    plot = ggplot(ne[[pop]], aes(GEN)) + 
+      geom_line(aes(y=NE)) + 
+      ggtitle(glue("{pop} IBDNe")) +
+      scale_y_continuous(name="Ne estimate",
+                         breaks = seq(0, max(ne[[pop]]$NE), by=max(ne[[pop]]$NE)/10),
+                         labels = scales::comma)
+  
+  plts[[pop]][[chrom]] = plot
+}
+
+ml2 <- marrangeGrob(flatten(plts), nrow = 2, ncol = 2)
+ml2
+
+ibdne = NULL
+recentne = list()
+for (pop in pops){
+    recentne[[pop]] = ne[[pop]][1:10,]
+    hmean= 1/mean(1/ne[[pop]]$NE)
+    recenthmean = 1/mean(1/recentne[[pop]]$NE)
+    rw = cbind(pop, hmean, recenthmean)
+    ibdne = rbind(ibdne, rw)
+}
+colnames(ibdne) = c("Population", "overall harmonic mean Ne", "recent hmean Ne")
+
+kable(ibdne, digits=4) %>% kable_styling()
+
+
+
+
+```
+
+
+
+
+
+```{r echo=FALSE, eval=FALSE, results='asis'}
+
+for (pop in pops){
+  print(kable(ne[[pop]], caption = glue("{pop} IBDNe estimates")) %>% kable_styling())
+}
+
+
+```
+
+

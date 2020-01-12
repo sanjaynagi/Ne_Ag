@@ -1,0 +1,13 @@
+Output from NeEstimator v2.1
+Starting time: Sun Jan 12 15:07:59 2020
+Input File #1: "data/dat/KE_3L.dat"
+
+Number of Loci = 5049
+
+
+Fatal error: At locus 1, Sample 1 (population 1 [°Gn÷°Gn÷]) has non-digit character for a genotype.
+No population is run!
+
+Ending time: Sun Jan 12 15:07:59 2020
+-------------------------------------
+

@@ -1,0 +1,6 @@
+##Trimmed.mean.IBD.segments.per.locus=3.5
+##Trimmed.stddev.IBD.segments.per.locus=4.1
+##Min.permitted.IBD.segments.per.locus=0
+##Max.permitted.IBD.segments.per.locus=45
+#CHROM	START.POS	END.POS
+3L	0	6814119
