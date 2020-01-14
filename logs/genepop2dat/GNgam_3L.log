@@ -11,6 +11,3 @@
 [31m✖[39m [34mdplyr[39m::[32mlag()[39m       masks [34mstats[39m::lag()
 [31m✖[39m [34mdplyr[39m::[32mlast()[39m      masks [34mdata.table[39m::last()
 [31m✖[39m [34mpurrr[39m::[32mtranspose()[39m masks [34mdata.table[39m::transpose()
-Error in read.table(args[1], skip = 1, colClasses = "character") : 
-  no lines available in input
-Execution halted

@@ -26,7 +26,7 @@ rule subset_vcfs:
 		samples='data/list_samples/{pop}_sample_list'
 	threads:8
 	shell:
-		"~/apps/bcftools/bin/bcftools view --threads {threads}-r {params.region} -c {params.ac} -O {params.compression} -S {params.samples} /kwiat/vector/ag1000g/release/phase2.AR1/variation/main/vcf/pass/ag1000g.phase2.ar1.pass.{wildcards.chrom}.vcf.gz > {output} 2> {log}"		
+		"~/apps/bcftools/bin/bcftools view --threads {threads} -r {params.region} -c {params.ac} -O {params.compression} -S {params.samples} /kwiat/vector/ag1000g/release/phase2.AR1/variation/main/vcf/pass/ag1000g.phase2.ar1.pass.{wildcards.chrom}.vcf.gz > {output} 2> {log}"		
 
 ################ IBD ####################
 rule unzip_vcfs:
@@ -67,9 +67,22 @@ rule run_ibdne:
 
 
 ############### noncoding, downsample to genepop and dat ############
-rule restrict_noncoding:
+rule index_vcf:
 	input:
 		"data/vcfs/{pop}_{chrom}.vcf.gz"
+	output:
+		"data/vcfs/{pop}_{chrom}.vcf.idx"
+	log:
+		"logs/gatk_index/{pop}_{chrom}.log"
+	group:
+		"downsample"
+	shell:
+		"gatk IndexFeatureFile -F {input.vcf}"
+
+rule restrict_noncoding:
+	input:
+		vcf="data/vcfs/{pop}_{chrom}.vcf.gz",
+		idx="data/vcfs/{pop}_{chrom}.vcf.idx"
 	output:
 		pipe("data/noncoding/{pop}_{chrom}_noncoding.vcf")
 	log:
@@ -77,19 +90,21 @@ rule restrict_noncoding:
 	group:
 		'downsample'
 	shell:
-		"gatk SelectVariants -V {input} -O {output} -XL ~/reference/regions/Ag_coding_and_regulatory.intervals 2> {log}"
+		"gatk SelectVariants -V {input.vcf} -O {output} -XL ~/reference/regions/Ag_coding_and_regulatory.intervals 2> {log}"
 rule downsample:
 	input:
 		vcf="data/noncoding/{pop}_{chrom}_noncoding.vcf",
-		header="data/header.vcf"
 	output:
-		"data/noncoding/downsample/{pop}_random_{chrom}.vcf"
+		vcf="data/noncoding/downsample/{pop}_random_{chrom}.vcf",
+		header=temp("data/header_{pop}_{chrom}.vcf")
+	params:
+		n=10000
 	log:
 		"logs/shuf_downsample/{pop}_{chrom}.log"
 	group:
 		'downsample'
 	shell:
-		"(tail -n +83 {input.vcf} | shuf -n 10000 | cat {input.header} - > {output}) 2> {log}"
+		"head -n 83 {input.vcf} > {output.header}; tail -n +83 {input.vcf} | shuf -n {params.n} | cat {output.header} - | ~/apps/bcftools/bin/bcftools sort - > {output}"
 
 rule vcf2genepop:
 	input:
@@ -123,11 +138,11 @@ rule genepop2dat:
 ############## Run LDNe ############
 rule create_batch_file:
 	output:
-		"analysis/LDNe/ag_batch_{pop}_{chrom}.txt"
+		"analysis/LDNe/batch/ag_batch_{pop}_{chrom}.txt"
 	group:
 		"LDNe"
 	run:
-		with open(f'analysis/LDNe/ag_batch_{wildcards.pop}_{wildcards.chrom}.txt', 'w') as batch_file:
+		with open(f'analysis/LDNe/batch/ag_batch_{wildcards.pop}_{wildcards.chrom}.txt', 'w') as batch_file:
 			batch_file.write(f'1\t0\n3\n0.05\t0.02\t0.01\n15\t0\t1\n1\n0\n0\n0\n0\nanalysis/LDNe/Ag_LDNe_{wildcards.pop}_{wildcards.chrom}.out\n')
 			batch_file.write(f"data/dat/{wildcards.pop}_{wildcards.chrom}.dat\n")
 			batch_file.write("*")
@@ -136,7 +151,7 @@ rule create_batch_file:
 rule run_ldne:
 	input:
 		dat="data/dat/{pop}_{chrom}.dat",
-		batch="analysis/LDNe/ag_batch_{pop}_{chrom}.txt"
+		batch="analysis/LDNe/batch/ag_batch_{pop}_{chrom}.txt"
 	output:
 		"analysis/LDNe/Ag_LDNe_{pop}_{chrom}.out"
 	group:"LDNe"
