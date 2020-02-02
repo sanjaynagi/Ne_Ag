@@ -1,0 +1,44 @@
+Output from NeEstimator v2.1
+Starting time: Mon Jan 13 16:59:32 2020
+Input File #1: "data/dat/GNgam_3R.dat"
+
+Number of Loci = 10000
+
+Non-polymorphic loci:   768,   780,   918,  1185,  1197,  1363,  1962,  2149,
+         2510,  2558,  2584,  3019,  3124,  3789,  3802,  3857,  4411,  4465,
+         4605,  4648,  5506,  5507,  5578,  5613,  5920,  6085,  6150,  6159,
+         6248,  6268,  6342,  6537,  6679,  6765,  6825,  6941,  7150,  7310,
+         7443,  7622,  7679,  7696,  7708,  8078,  8323,  8461,  8649,  8848,
+         8907,  8915,  9042,  9049,  9057,  9074,  9129,  9162,  9174,  9182,
+         9186,  9200,  9382,  9450,  9452,  9464,  9516,  9681,  9728,  9823,
+         9924,  9943,  9991
+Total non-polymorphic = 71
+
+LD mating model: Random
+
+Population     1 [GNgam_3R]  (Number of Individuals = 40)
+****************
+--------------------------------------------------------------------------
+Lowest Allele Frequency Used     0.050       0.020       0.010         0+
+--------------------------------------------------------------------------
+
+LINKAGE DISEQUILIBRIUM METHOD
+
+Harmonic Mean Sample Size =       40.0        40.0        40.0        40.0
+Independent Comparisons =    6069802    18113858    56625551    56625551
+OverAll r^2 =                 0.027729    0.027691    0.026943    0.026943
+Expected r^2 Sample =         0.026998    0.027001    0.026999    0.026999
+Estimated Ne^ =                  453.8       480.5    Infinite    Infinite
+
+95% CIs for Ne^
+* Parametric                     435.2       468.2    Infinite    Infinite
+                                 474.1       493.4    Infinite    Infinite
+
+* JackKnife on Samples           153.0       149.9       722.4       722.4
+                              Infinite    Infinite    Infinite    Infinite
+
+**************************************************************************
+
+Ending time: Mon Jan 13 17:20:04 2020
+-------------------------------------
+

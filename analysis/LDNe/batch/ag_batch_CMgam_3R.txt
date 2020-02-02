@@ -1,0 +1,12 @@
+1	0
+3
+0.05	0.02	0.01
+15	0	1
+1
+0
+0
+0
+0
+analysis/LDNe/Ag_LDNe_CMgam_3R.out
+data/dat/CMgam_3R.dat
+*

@@ -1,0 +1,41 @@
+Output from NeEstimator v2.1
+Starting time: Mon Jan 13 17:06:58 2020
+Input File #1: "data/dat/UGgam_3L.dat"
+
+Number of Loci = 10000
+
+Non-polymorphic loci:    92,   238,   259,   362,   531,   590,   604,   607,
+          639,   686,   736,   802,   803,   854,   879,  1007,  1008,  1100,
+         1401,  1414,  1437,  1443,  1509,  1534,  1916,  1979,  2235,  2646,
+         2965,  4528,  5254,  5917,  6695,  7559,  8733,  8891,  9402,  9429,
+         9926
+Total non-polymorphic = 39
+
+LD mating model: Random
+
+Population     1 [UGgam_3L]  (Number of Individuals = 112)
+****************
+--------------------------------------------------------------------------
+Lowest Allele Frequency Used     0.050       0.020       0.010         0+
+--------------------------------------------------------------------------
+
+LINKAGE DISEQUILIBRIUM METHOD
+
+Harmonic Mean Sample Size =      112.0       112.0       112.0       112.0
+Independent Comparisons =    2733796     7948971    15424471    60479845
+OverAll r^2 =                 0.009316    0.009263    0.009233    0.009186
+Expected r^2 Sample =         0.009184    0.009184    0.009184    0.009184
+Estimated Ne^ =                 2515.7      4206.7      6735.0    175557.4
+
+95% CIs for Ne^
+* Parametric                    2249.7      3772.4      5950.6     64428.9
+                                2851.9      4753.1      7756.2    Infinite
+
+* JackKnife on Samples          1960.6      3214.4      4979.2     14683.4
+                                3500.0      6073.7     10386.4    Infinite
+
+**************************************************************************
+
+Ending time: Mon Jan 13 17:44:32 2020
+-------------------------------------
+

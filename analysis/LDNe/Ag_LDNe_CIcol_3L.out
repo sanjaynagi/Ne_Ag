@@ -1,0 +1,41 @@
+Output from NeEstimator v2.1
+Starting time: Mon Jan 20 09:50:43 2020
+Input File #1: "data/dat/CIcol_3L.dat"
+
+Number of Loci = 10000
+
+Non-polymorphic loci:    66,   144,   154,   315,   335,   401,   476,   509,
+          700,   788,   882,  1006,  1290,  1318,  1751,  1946,  2119,  2884,
+         3152,  3761,  4021,  4547,  4869,  5201,  5789,  6569,  7175,  7334,
+         7462,  7475,  7687,  7859,  8121,  8466,  8691,  8851,  9212,  9249,
+         9371,  9558
+Total non-polymorphic = 40
+
+LD mating model: Random
+
+Population     1 [CIcol_3L]  (Number of Individuals = 71)
+****************
+--------------------------------------------------------------------------
+Lowest Allele Frequency Used     0.050       0.020       0.010         0+
+--------------------------------------------------------------------------
+
+LINKAGE DISEQUILIBRIUM METHOD
+
+Harmonic Mean Sample Size =       71.0        71.0        71.0        71.0
+Independent Comparisons =    5478908    17898976    27529158    56043565
+OverAll r^2 =                 0.014825    0.014787    0.014767    0.014707
+Expected r^2 Sample =         0.014721    0.014720    0.014720    0.014720
+Estimated Ne^ =                 3203.3      4977.5      7053.9    Infinite
+
+95% CIs for Ne^
+* Parametric                    2740.0      4347.7      6053.4    Infinite
+                                3853.7      5819.7      8448.7    Infinite
+
+* JackKnife on Samples          2252.3      3665.0      4930.5     58044.3
+                                5524.2      7742.8     12367.1    Infinite
+
+**************************************************************************
+
+Ending time: Mon Jan 20 10:17:04 2020
+-------------------------------------
+

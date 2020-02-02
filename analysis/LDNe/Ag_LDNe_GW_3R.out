@@ -1,0 +1,41 @@
+Output from NeEstimator v2.1
+Starting time: Sun Jan 19 20:40:19 2020
+Input File #1: "data/dat/GW_3R.dat"
+
+Number of Loci = 10000
+
+Non-polymorphic loci:   623,   658,   832,   990,  1043,  1045,  1357,  1996,
+         2210,  2645,  2919,  3023,  3029,  4535,  4735,  4792,  5148,  5266,
+         5427,  5438,  6345,  6357,  7331,  8056,  8268,  8274,  8632,  8694,
+         8769,  8938,  9000,  9152,  9176,  9209,  9344,  9438,  9492,  9636,
+         9647,  9691,  9927,  9946
+Total non-polymorphic = 42
+
+LD mating model: Random
+
+Population     1 [GW_3R]  (Number of Individuals = 91)
+****************
+--------------------------------------------------------------------------
+Lowest Allele Frequency Used     0.050       0.020       0.010         0+
+--------------------------------------------------------------------------
+
+LINKAGE DISEQUILIBRIUM METHOD
+
+Harmonic Mean Sample Size =       91.0        91.0        91.0        91.0
+Independent Comparisons =    3313357    10681984    25176637    58514672
+OverAll r^2 =                 0.011451    0.011413    0.011395    0.011344
+Expected r^2 Sample =         0.011377    0.011377    0.011377    0.011376
+Estimated Ne^ =                 4499.7      9162.1     18212.8    Infinite
+
+95% CIs for Ne^
+* Parametric                    3640.9      7234.9     13549.6    Infinite
+                                5884.4     12482.3     27760.4    Infinite
+
+* JackKnife on Samples          3051.0      4994.2      7643.4    Infinite
+                                8529.8     54178.1    Infinite    Infinite
+
+**************************************************************************
+
+Ending time: Sun Jan 19 21:11:54 2020
+-------------------------------------
+

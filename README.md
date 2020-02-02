@@ -35,47 +35,8 @@ We aim to estimate recent effective pop sizes using three methods - LDNe , NB , 
 ## Code 
 
 
-Subset the vcfs, and remove variants that are no longer segregating (-c1), compress (-z) and exclude pericentromeric regions.
 
-3R: 1-5000000
-3L: 2000000-4196nnnn
+## Negative NE estimates from LDNe 
+(Waples,Do , 2010) evol appl. 
 
-```bash
-
-for i in KE UGgam FRgam GQgam; 
-	do
-		~/apps/bcftools/bin/bcftools view -c1 -O z /kwiat/vector/ag1000g/release/phase2.AR1/variation/main/vcf/pass/ag1000g.phase2.ar1.pass.3R.vcf.gz -S ../data/list_samples/${i}_sample_list -r 3R:1-50000000 > ../data/${i}_3R.vcf 2> ${i}_3R_vcf.stderr ; 
-
-		~/apps/bcftools/bin/bcftools view -c1 -O z /kwiat/vector/ag1000g/release/phase2.AR1/variation/main/vcf/pass/ag1000g.phase2.ar1.pass.3L.vcf.gz -S ../data/list_samples/${i}_sample_list -r 3L:2000000-41963435 > ../data/${i}_3L.vcf 2> ${i}_3L_vcf.stderr;
-done
-
-
-```
-
-Then loop again over the populations with ibdseq to calculate shared pairwise segments of Identity by descent. 
-
-```bash
-for i in KE UGgam FRgam EQgam; 
-	do
-		java -jar ~/apps/ibdseq.r1206.jar gt=../data/${i}_3R_vcf out=${i}_ibd_3R 2> ${i}_3R_ibd.stderr ; 
-
-		java -jar ~/apps/ibdseq.r1206.jar gt=../data/${i}_3L_vcf out=${i}_ibd_3L 2> ${i}_3L_ibd.stderr ; 
-
-		cat ${i}_ibd_3R ${i}_ibd_3L > ${i}_ibd
-done
-
-
-```
-We then take the .ibd file and run it through IBDNe, supplying the genetic map produced in Miles (2017). The output are then used in RStudio to plot and explore. 
-
-```bash
-for i in KE UGgam FRgam EQgam; 
-	do
-		cat ${i}_ibd | java -jar ~/apps/ibdne.19Sep19.268.jar map=recombination_maps/Ag_genetic.map out=${i}_ibdne 2> ${i}_ibdne.stderr; 
-done
-
-```
-
-
-
-
+As shown in eqn (2a), before estimating Ne in the LD method, the expected contribution of sampling error is subtracted from the empirical An external file that holds a picture, illustration, etc. Object name is eva0003-0244-mu73.jpg. If Ne is large, or if only limited data are available, by chance mean An external file that holds a picture, illustration, etc. Object name is eva0003-0244-mu74.jpg can be smaller than the sample size correction, in which case the estimate of Ne will be negative. A related phenomenon can occur with the standard temporal method (Nei and Tajima 1981; Waples 1989) and with unbiased estimators of genetic differentiation (Nei 1978; Weir and Cockerham 1984). Negative estimates occur when the genetic results can be explained entirely by sampling error without invoking any genetic drift, so the biological interpretation is An external file that holds a picture, illustration, etc. Object name is eva0003-0244-mu75.jpg = ∞ (Laurie-Ahlberg and Weir 1979; Nei and Tajima 1981). In this situation, the user can conclude that the data provide no evidence that the population is not ‘very large’. However, even if the point estimate is negative, if adequate data are available the lower bound of the CI generally will be finite and can provide useful information about plausible limits Ne. 

@@ -1,4 +1,4 @@
-pops=['KE', 'UGgam', 'FRgam', 'GNgam', 'GHcol']
+pops=['KE', 'UGgam', 'FRgam', 'GNgam', 'GHcol','CMgam', 'BFcol', 'BFgam', 'GHgam', 'GM', 'GW', 'GNcol', 'AOcol', 'GQgam', 'GAgam', 'CIcol']
 chroms=['3L', '3R']
 
 ruleorder: unzip_vcfs > downsample
@@ -26,7 +26,7 @@ rule subset_vcfs:
 		samples='data/list_samples/{pop}_sample_list'
 	threads:8
 	shell:
-		"~/apps/bcftools/bin/bcftools view --threads {threads} -r {params.region} -c {params.ac} -O {params.compression} -S {params.samples} /kwiat/vector/ag1000g/release/phase2.AR1/variation/main/vcf/pass/ag1000g.phase2.ar1.pass.{wildcards.chrom}.vcf.gz > {output} 2> {log}"		
+		"bcftools view --threads {threads} -r {params.region} -c {params.ac} -O {params.compression} -S {params.samples} /kwiat/vector/ag1000g/release/phase2.AR1/variation/main/vcf/pass/ag1000g.phase2.ar1.pass.{wildcards.chrom}.vcf.gz > {output} 2> {log}"		
 
 ################ IBD ####################
 rule unzip_vcfs:
@@ -71,20 +71,20 @@ rule index_vcf:
 	input:
 		"data/vcfs/{pop}_{chrom}.vcf.gz"
 	output:
-		"data/vcfs/{pop}_{chrom}.vcf.idx"
+		"data/vcfs/{pop}_{chrom}.vcf.gz.tbi"
 	log:
 		"logs/gatk_index/{pop}_{chrom}.log"
 	group:
 		"downsample"
 	shell:
-		"gatk IndexFeatureFile -F {input.vcf}"
+		"gatk IndexFeatureFile -F {input}"
 
 rule restrict_noncoding:
 	input:
 		vcf="data/vcfs/{pop}_{chrom}.vcf.gz",
-		idx="data/vcfs/{pop}_{chrom}.vcf.idx"
+		idx="data/vcfs/{pop}_{chrom}.vcf.gz.tbi"
 	output:
-		pipe("data/noncoding/{pop}_{chrom}_noncoding.vcf")
+		"data/noncoding/{pop}_{chrom}_noncoding.vcf"
 	log:
 		"logs/gatk_noncoding/{pop}_{chrom}.log"
 	group:
@@ -104,7 +104,7 @@ rule downsample:
 	group:
 		'downsample'
 	shell:
-		"head -n 83 {input.vcf} > {output.header}; tail -n +83 {input.vcf} | shuf -n {params.n} | cat {output.header} - | ~/apps/bcftools/bin/bcftools sort - > {output}"
+		"head -n 83 {input.vcf} > {output.header}; tail -n +83 {input.vcf} | shuf -n {params.n} | cat {output.header} - | bcftools sort - > {output}"
 
 rule vcf2genepop:
 	input:
@@ -116,7 +116,7 @@ rule vcf2genepop:
 	group:
 		"convert"
 	shell:
-		"perl analysis/vcf2genepop.pl vcf={input} pop={wildcards.pop} > {output} 2> {log}"
+		"perl analysis/scripts/vcf2genepop.pl vcf={input} pop={wildcards.pop} > {output} 2> {log}"
 
 rule genepop2dat:
 	input:
@@ -131,7 +131,7 @@ rule genepop2dat:
 	log:
 		"logs/genepop2dat/{pop}_{chrom}.log"
 	shell:
-		"(Rscript analysis/genepop2dat.R {input} {wildcards.pop}_{wildcards.chrom} {output}) 2> {log}"
+		"(Rscript analysis/scripts/genepop2dat.R {input} {wildcards.pop}_{wildcards.chrom} {output}) 2> {log}"
 
 
 ####################################

@@ -1,0 +1,40 @@
+Output from NeEstimator v2.1
+Starting time: Thu Jan 16 16:03:22 2020
+Input File #1: "data/dat/BFcol_3L.dat"
+
+Number of Loci = 10000
+
+Non-polymorphic loci:    70,   181,   292,   296,   521,   533,   539,   631,
+          677,   792,  1116,  1207,  1759,  2098,  2394,  3070,  3625,  3974,
+         5774,  5928,  7340,  8207,  8220,  8378,  9093,  9152,  9241,  9414,
+         9873
+Total non-polymorphic = 29
+
+LD mating model: Random
+
+Population     1 [BFcol_3L]  (Number of Individuals = 75)
+****************
+--------------------------------------------------------------------------
+Lowest Allele Frequency Used     0.050       0.020       0.010         0+
+--------------------------------------------------------------------------
+
+LINKAGE DISEQUILIBRIUM METHOD
+
+Harmonic Mean Sample Size =       75.0        75.0        75.0        75.0
+Independent Comparisons =    3364929     8737393    22197969    58525519
+OverAll r^2 =                 0.013900    0.013902    0.013890    0.013839
+Expected r^2 Sample =         0.013903    0.013904    0.013903    0.013903
+Estimated Ne^ =               Infinite    Infinite    Infinite    Infinite
+
+95% CIs for Ne^
+* Parametric                   17897.2     32669.2    Infinite    Infinite
+                              Infinite    Infinite    Infinite    Infinite
+
+* JackKnife on Samples         10892.7     20328.2    136138.7    Infinite
+                              Infinite    Infinite    Infinite    Infinite
+
+**************************************************************************
+
+Ending time: Thu Jan 16 16:28:38 2020
+-------------------------------------
+

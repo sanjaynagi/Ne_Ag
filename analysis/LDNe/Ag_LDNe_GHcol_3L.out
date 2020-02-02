@@ -1,0 +1,42 @@
+Output from NeEstimator v2.1
+Starting time: Tue Jan 14 20:14:26 2020
+Input File #1: "data/dat/GHcol_3L.dat"
+
+Number of Loci = 10000
+
+Non-polymorphic loci:   130,   224,   239,   253,   256,   280,   309,   322,
+          345,   350,   518,   557,   602,   863,   866,   951,   999,  1014,
+         1607,  1739,  2261,  2967,  3109,  3119,  3255,  4665,  4683,  4778,
+         5211,  5521,  5569,  5733,  5736,  5955,  7615,  7639,  8255,  8499,
+         8533,  8601,  8729,  8930,  8973,  8996,  9279,  9291,  9637,  9687,
+         9738
+Total non-polymorphic = 49
+
+LD mating model: Random
+
+Population     1 [GHcol_3L]  (Number of Individuals = 55)
+****************
+--------------------------------------------------------------------------
+Lowest Allele Frequency Used     0.050       0.020       0.010         0+
+--------------------------------------------------------------------------
+
+LINKAGE DISEQUILIBRIUM METHOD
+
+Harmonic Mean Sample Size =       55.0        55.0        55.0        55.0
+Independent Comparisons =    6465956    16165678    26165685    55799751
+OverAll r^2 =                 0.019633    0.019660    0.019652    0.019358
+Expected r^2 Sample =         0.019242    0.019241    0.019241    0.019240
+Estimated Ne^ =                  851.2       793.2       808.2      2824.7
+
+95% CIs for Ne^
+* Parametric                     806.9       768.2       787.7      2662.3
+                                 900.7       819.7       829.7      3008.0
+
+* JackKnife on Samples           338.5       301.2       298.0       659.3
+                              Infinite    Infinite    Infinite    Infinite
+
+**************************************************************************
+
+Ending time: Tue Jan 14 20:34:46 2020
+-------------------------------------
+

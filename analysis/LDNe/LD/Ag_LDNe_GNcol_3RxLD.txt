@@ -1,0 +1,23 @@
+Output from NeEstimator v2.1
+Starting time: Sat Jan 18 23:45:00 2020
+
+Mating Model: Random
+
+Lowest allele frequency used:    0.0500
+Input Names are shown up to 17 righmost characters.
+Up to 17 righmost characters can be shown for population names.
+----------------------------------------------------------------------------------------------------------------------------------------------------
+Input File Number   #Loci  Population #   Samp  Weighted      #Indep.   r^2     Exp(r^2)       Ne^                 CIs for Ne^
+then :Name                 then by :Name  Size  H. Mean       Alleles            Sample                    Parametric       Jackknife Samp  (Eff.df)
+----------------------------------------------------------------------------------------------------------------------------------------------------
+1:GNcol_3R.dat      10000
+-------------------------
+                           1:GNcol_3R       4      4.0    43406665  0.508447  0.506081      128.5     117.7     141.4      18.6  Infinite     12856
+
+-------------------------------------
+Total number of populations =       1
+-------------------------------------
+
+Ending time: Sat Jan 18 23:50:15 2020
+-------------------------------------
+
