@@ -1,0 +1,111 @@
+Program           :  ibdne.19Sep19.268.jar
+Author            :  Copyright (C) 2015 Brian L. Browning
+Available memory  :  10727 MB
+Start Time        :  05:46 PM GMT on 05 Feb 2020
+
+Parameters
+  map             :  data/Ag_genetic.map
+  out             :  analysis/ibdne/BFgam_ibdne
+  mincm           :  2.0
+  minregion       :  50.0
+  trimcm          :  0.2
+  filtersample    :  true
+  npairs          :  data dependent
+  nits            :  1000
+  nboots          :  80
+  gmax            :  300
+  seed            :  -99999
+  nthreads        :  4
+
+Reading IBD segments               Done (elapsed time: 1 second)
+Samples           : 92
+segments read     : 172661
+segments analyzed : 703
+
+Estimating Ne [original data]      Done (elapsed time: 38 seconds)
+Estimating Ne [bootstrap samples]
+
+Original  fit 0.6
+Bootstrap fit 0.2
+Bootstrap fit 0.6
+Bootstrap fit 0.6
+Bootstrap fit 0.2
+Bootstrap fit 0.2
+Bootstrap fit 0.6
+Bootstrap fit 1.8
+Bootstrap fit 0.2
+Bootstrap fit 0.2
+Bootstrap fit 0.6
+Bootstrap fit 0.2
+Bootstrap fit 0.6
+Bootstrap fit 1.8
+Bootstrap fit 0.6
+Bootstrap fit 0.6
+Bootstrap fit 0.6
+Bootstrap fit 0.6
+Bootstrap fit 0.6
+Bootstrap fit 0.2
+Bootstrap fit 1.8
+Bootstrap fit 0.2
+Bootstrap fit 0.2
+Bootstrap fit 0.6
+Bootstrap fit 0.6
+Bootstrap fit 1.8
+Bootstrap fit 0.2
+Bootstrap fit 0.6
+Bootstrap fit 0.6
+Bootstrap fit 0.2
+Bootstrap fit 1.8
+Bootstrap fit 0.2
+Bootstrap fit 0.6
+Bootstrap fit 0.6
+Bootstrap fit 0.6
+Bootstrap fit 0.2
+Bootstrap fit 1.8
+Bootstrap fit 0.6
+Bootstrap fit 0.2
+Bootstrap fit 0.6
+Bootstrap fit 0.6
+Bootstrap fit 1.8
+Bootstrap fit 0.2
+Bootstrap fit 0.6
+Bootstrap fit 0.2
+Bootstrap fit 0.2
+Bootstrap fit 0.6
+Bootstrap fit 0.2
+Bootstrap fit 0.6
+Bootstrap fit 1.8
+Bootstrap fit 1.8
+Bootstrap fit 0.2
+Bootstrap fit 1.8
+Bootstrap fit 1.8
+Bootstrap fit 1.8
+Bootstrap fit 0.2
+Bootstrap fit 0.6
+Bootstrap fit 0.6
+Bootstrap fit 0.6
+Bootstrap fit 0.6
+Bootstrap fit 0.6
+Bootstrap fit 0.2
+Bootstrap fit 0.6
+Bootstrap fit 0.6
+Bootstrap fit 0.6
+Bootstrap fit 0.2
+Bootstrap fit 0.6
+Bootstrap fit 0.2
+Bootstrap fit 0.6
+Bootstrap fit 0.6
+Bootstrap fit 0.6
+Bootstrap fit 0.2
+Bootstrap fit 0.6
+Bootstrap fit 0.6
+Bootstrap fit 1.8
+Bootstrap fit 0.6
+Bootstrap fit 1.8
+Bootstrap fit 0.6
+Bootstrap fit 0.6
+Bootstrap fit 0.2
+Bootstrap fit 1.8
+
+Elapsed Time      :  12 minutes 3 seconds
+End Time          :  05:58 PM GMT on 05 Feb 2020
