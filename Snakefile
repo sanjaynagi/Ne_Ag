@@ -1,4 +1,7 @@
-pops=['KE', 'UGgam', 'FRgam', 'GNgam', 'GHcol','CMgam', 'BFcol', 'BFgam', 'GHgam', 'GM', 'GW', 'GNcol', 'AOcol', 'GQgam', 'GAgam', 'CIcol']
+import pandas as pd
+samples = pd.read_csv("data/samples.csv")
+pops = samples.population.unique()
+
 chroms=['3L', '3R']
 
 ruleorder: unzip_vcfs > downsample
