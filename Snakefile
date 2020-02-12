@@ -1,5 +1,5 @@
 import pandas as pd
-samples = pd.read_csv("data/samples.csv")
+samples = pd.read_csv("~/ag1000g/data/amples.meta.txt", sep="\t")
 pops = samples.population.unique()
 
 chroms=['3L', '3R']
