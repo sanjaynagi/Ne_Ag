@@ -24,3 +24,6 @@ gen = gen %>% select(-`sample`)
 paste(nrow(gen), ncol(gen), 04, 2) %>% list() %>% fwrite(., glue("fline_{args[2]}"), sep="\t")
 
 system(glue("cat fline_{args[2]} loci_{args[2]} gen_{args[2]} > {args[3]}"))
+
+
+
