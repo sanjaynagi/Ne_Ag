@@ -11,22 +11,21 @@ parser.add_argument('--n', type=int, action='store', default=10000, help='Number
 parser.add_argument('--zarr', type=str, action='store',help='Path to zarr file')
 parser.add_argument('--samples', type=str, action='store', help='Tab-delimited Samples metadate file')
 parser.add_argument('--gff', type=str, action='store', help='Ag gff3 file')
-parser.add_argument('--chroms', type=str, action='store', default=['3L','3R'], help='Tab-delimited Samples metadate file')
-parser.add_argument('--pops', type=str, action='store', help='Tab-delimited Samples metadate file')
+parser.add_argument('--chroms', type=str, action='store', default=['3L','3R'], help='Which chromosomes to use')
 args=parser.parse_args()
 
 print("------------ Zarr to LDNe -------------")
 # As the current method of running LDNe in the snakemake pipeline requires subsetting the VCF (very slow), 
 # I will instead write a script to convert the zarr to .dat format for LDNe.
 samples = pd.read_csv(args.samples, sep="\t")
-pops = args.pops
-chroms = args.chroms
+pops = samples.population.unique()
+chroms = ['3L','3R']
 n = args.n  # number of SNPs to choose randomly
 
 for chrom in chroms:
 
     #open arrays
-    print(f"Opening arrays {pop} {chrom}")
+    print(f"Opening arrays {chrom}")
     Ag_store = zarr.open_array(f"{args.zarr}/{chrom}/calldata/GT/", mode = 'r')
     positions = allel.SortedIndex(zarr.open_array(f"{args.zarr}/{chrom}/variants/POS", mode='r'))
     ag_geno = allel.GenotypeChunkedArray(Ag_store)
@@ -45,7 +44,7 @@ for chrom in chroms:
     #compress to get noncoding SNPs
     ag_geno = ag_geno.compress(centromere, axis=0)
     ag_geno = ag_geno.compress(~coding, axis=0) #we want noncoding regions so '~' to get inverse of boolean
-
+    print(f"Filtering out coding regions {chrom}")
     # Remove centromeric regions of low recombination
     # Converting to .dat format for LDNe
 
@@ -63,11 +62,11 @@ for chrom in chroms:
         gnr = np.array(gnr[:])
         gnr = gnr.astype(str)
 
-        positions = positions[~coding]
-        positions = positions[seg]
-        positions = positions[vidx]
+        pos = positions[~coding]
+        pos = pos[seg]
+        pos = pos[vidx]
         prefix = f'{chrom}_'
-        pos_string = [prefix + pos for pos in positions.astype(str)]
+        pos_string = [prefix + p for p in pos.astype(str)]
 
         gnr[gnr == '-1'] = '00' #convert missing alleles 
         dat = np.empty([gnr.shape[0], gnr.shape[1]])
@@ -98,7 +97,7 @@ for chrom in chroms:
         popnames = np.repeat(f"{pop}_{chrom}", n)
         dat = np.column_stack((popnames, dat)) #
         
-        with open(f'{pop}_{chrom}.dat', 'w') as datfile:
+        with open(f'data/dat/{pop}_{chrom}.dat', 'w') as datfile:
             datfile.write(f'{gnr.shape[1]}\t{gnr.shape[0]}\t4\t2\n')
             datfile.write("\n".join("".join(map(str, x)) for x in pos_string)) 
             datfile.write("\n")

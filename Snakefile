@@ -1,10 +1,9 @@
 import pandas as pd
-samples = pd.read_csv("~/ag1000g/data/amples.meta.txt", sep="\t")
+samples = pd.read_csv("~/ag1000g/data/samples.meta.txt", sep="\t")
 pops = samples.population.unique()
-
 chroms=['3L', '3R']
 
-ruleorder: unzip_vcfs > downsample
+configfile:"config.yaml"
 
 rule all:
 	input: 
@@ -13,7 +12,6 @@ rule all:
 rule all_ldne:
 	input:
 		expand("analysis/LDNe/Ag_LDNe_{pop}_{chrom}.out", pop=pops, chrom=chroms)
-
 
 ############# subset vcfs #############
 
@@ -68,77 +66,23 @@ rule run_ibdne:
 	shell:
 		"cat {input.ibd} | java -jar ~/apps/ibdne.19Sep19.268.jar map={input.gen_map} out=analysis/ibdne/{wildcards.pop}_ibdne nthreads={threads} 2> {log}"
 
+############## LDNe ############
+############### noncoding, downsample to genepop and dat using the Zarr ############
 
-############### noncoding, downsample to genepop and dat ############
-rule index_vcf:
+rule Zarr_to_LDNe:
 	input:
-		"data/vcfs/{pop}_{chrom}.vcf.gz"
+		zarr = config['zarr'],
+		gff = config['gff'],
+		samples = config['samples']
 	output:
-		"data/vcfs/{pop}_{chrom}.vcf.gz.tbi"
+		expand("data/dat/{pop}_{chrom}.dat", pop=pops, chrom=chroms)
 	log:
-		"logs/gatk_index/{pop}_{chrom}.log"
-	group:
-		"downsample"
-	shell:
-		"gatk IndexFeatureFile -F {input}"
-
-rule restrict_noncoding:
-	input:
-		vcf="data/vcfs/{pop}_{chrom}.vcf.gz",
-		idx="data/vcfs/{pop}_{chrom}.vcf.gz.tbi"
-	output:
-		"data/noncoding/{pop}_{chrom}_noncoding.vcf"
-	log:
-		"logs/gatk_noncoding/{pop}_{chrom}.log"
-	group:
-		'downsample'
-	shell:
-		"gatk SelectVariants -V {input.vcf} -O {output} -XL ~/reference/regions/Ag_coding_and_regulatory.intervals 2> {log}"
-rule downsample:
-	input:
-		vcf="data/noncoding/{pop}_{chrom}_noncoding.vcf",
-	output:
-		vcf="data/noncoding/downsample/{pop}_random_{chrom}.vcf",
-		header=temp("data/header_{pop}_{chrom}.vcf")
+		"logs/Zarr_to_LDNe/Zarr_to_LDNe.log"
 	params:
-		n=10000
-	log:
-		"logs/shuf_downsample/{pop}_{chrom}.log"
-	group:
-		'downsample'
+		n = 10000,
 	shell:
-		"head -n 83 {input.vcf} > {output.header}; tail -n +83 {input.vcf} | shuf -n {params.n} | cat {output.header} - | bcftools sort - > {output}"
+		"python analysis/scripts/Zarr_to_LDNe.py --n {params.n} --zarr {input.zarr} --gff {input.gff} --samples {input.samples} 2> {log}"
 
-rule vcf2genepop:
-	input:
-		"data/noncoding/downsample/{pop}_random_{chrom}.vcf"
-	output:
-		"data/genepops/{pop}_{chrom}.gen"
-	log:
-		"logs/vcf2genepop/{pop}_{chrom}.log"
-	group:
-		"convert"
-	shell:
-		"perl analysis/scripts/vcf2genepop.pl vcf={input} pop={wildcards.pop} > {output} 2> {log}"
-
-rule genepop2dat:
-	input:
-		"data/genepops/{pop}_{chrom}.gen"
-	output:
-		"data/dat/{pop}_{chrom}.dat",
-		temp("loci_{pop}_{chrom}"),
-		temp("fline_{pop}_{chrom}"),
-		temp("gen_{pop}_{chrom}")
-	group:
-		"convert"
-	log:
-		"logs/genepop2dat/{pop}_{chrom}.log"
-	shell:
-		"(Rscript analysis/scripts/genepop2dat.R {input} {wildcards.pop}_{wildcards.chrom} {output}) 2> {log}"
-
-
-####################################
-############## Run LDNe ############
 rule create_batch_file:
 	output:
 		"analysis/LDNe/batch/ag_batch_{pop}_{chrom}.txt"
