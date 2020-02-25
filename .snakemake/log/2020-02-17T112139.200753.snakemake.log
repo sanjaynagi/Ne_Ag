@@ -1,0 +1,27 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	Zarr_to_LDNe
+	1
+
+[Mon Feb 17 11:21:39 2020]
+rule Zarr_to_LDNe:
+    input: ../data/ag1000g.phase2.ar1.pass/, ../data/reference/Anopheles-gambiae-PEST_BASEFEATURES_AgamP4.12.gff3, ../data/samples.meta.txt
+    output: data/dat/GHcol_3L, data/dat/GHcol_3R, data/dat/GHgam_3L, data/dat/GHgam_3R, data/dat/BFgam_3L, data/dat/BFgam_3R, data/dat/BFcol_3L, data/dat/BFcol_3R, data/dat/UGgam_3L, data/dat/UGgam_3R, data/dat/GM_3L, data/dat/GM_3R, data/dat/GW_3L, data/dat/GW_3R, data/dat/KE_3L, data/dat/KE_3R, data/dat/CMgam_3L, data/dat/CMgam_3R, data/dat/FRgam_3L, data/dat/FRgam_3R, data/dat/GQgam_3L, data/dat/GQgam_3R, data/dat/AOcol_3L, data/dat/AOcol_3R, data/dat/GAgam_3L, data/dat/GAgam_3R, data/dat/GNgam_3L, data/dat/GNgam_3R, data/dat/GNcol_3L, data/dat/GNcol_3R, data/dat/CIcol_3L, data/dat/CIcol_3R
+    log: logs/Zarr_to_LDNe/Zarr_to_LDNe.log
+    jobid: 0
+
+Terminating processes on user request, this might take some time.
+[Mon Feb 17 11:21:49 2020]
+Error in rule Zarr_to_LDNe:
+    jobid: 0
+    output: data/dat/GHcol_3L, data/dat/GHcol_3R, data/dat/GHgam_3L, data/dat/GHgam_3R, data/dat/BFgam_3L, data/dat/BFgam_3R, data/dat/BFcol_3L, data/dat/BFcol_3R, data/dat/UGgam_3L, data/dat/UGgam_3R, data/dat/GM_3L, data/dat/GM_3R, data/dat/GW_3L, data/dat/GW_3R, data/dat/KE_3L, data/dat/KE_3R, data/dat/CMgam_3L, data/dat/CMgam_3R, data/dat/FRgam_3L, data/dat/FRgam_3R, data/dat/GQgam_3L, data/dat/GQgam_3R, data/dat/AOcol_3L, data/dat/AOcol_3R, data/dat/GAgam_3L, data/dat/GAgam_3R, data/dat/GNgam_3L, data/dat/GNgam_3R, data/dat/GNcol_3L, data/dat/GNcol_3R, data/dat/CIcol_3L, data/dat/CIcol_3R
+    log: logs/Zarr_to_LDNe/Zarr_to_LDNe.log (check log file(s) for error message)
+    shell:
+        python analysis/scripts/Zarr_to_LDNe.py --n 10000 --zarr ../data/ag1000g.phase2.ar1.pass/ --gff ../data/reference/Anopheles-gambiae-PEST_BASEFEATURES_AgamP4.12.gff3 --samples ../data/samples.meta.txt 2> logs/Zarr_to_LDNe/Zarr_to_LDNe.log
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Complete log: /home/sanj/ag1000g/Ne_Ag/.snakemake/log/2020-02-17T112139.200753.snakemake.log

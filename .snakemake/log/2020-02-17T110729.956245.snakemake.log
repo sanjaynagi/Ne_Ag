@@ -1,0 +1,3 @@
+WorkflowError in line 6 of /home/sanj/ag1000g/Ne_Ag/SnakefileZarr:
+Config file is not valid JSON or YAML. In case of YAML, make sure to not mix whitespace and tab indentation.
+  File "/home/sanj/ag1000g/Ne_Ag/SnakefileZarr", line 6, in <module>

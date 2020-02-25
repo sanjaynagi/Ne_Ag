@@ -1,0 +1,20 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	Zarr_to_LDNe
+	1
+
+[Mon Feb 17 11:30:21 2020]
+rule Zarr_to_LDNe:
+    input: ../data/ag1000g.phase2.ar1.pass/, ../data/reference/Anopheles-gambiae-PEST_BASEFEATURES_AgamP4.12.gff3, ../data/samples.meta.txt
+    output: data/dat/GHcol_3L.dat, data/dat/GHcol_3R.dat, data/dat/GHgam_3L.dat, data/dat/GHgam_3R.dat, data/dat/BFgam_3L.dat, data/dat/BFgam_3R.dat, data/dat/BFcol_3L.dat, data/dat/BFcol_3R.dat, data/dat/UGgam_3L.dat, data/dat/UGgam_3R.dat, data/dat/GM_3L.dat, data/dat/GM_3R.dat, data/dat/GW_3L.dat, data/dat/GW_3R.dat, data/dat/KE_3L.dat, data/dat/KE_3R.dat, data/dat/CMgam_3L.dat, data/dat/CMgam_3R.dat, data/dat/FRgam_3L.dat, data/dat/FRgam_3R.dat, data/dat/GQgam_3L.dat, data/dat/GQgam_3R.dat, data/dat/AOcol_3L.dat, data/dat/AOcol_3R.dat, data/dat/GAgam_3L.dat, data/dat/GAgam_3R.dat, data/dat/GNgam_3L.dat, data/dat/GNgam_3R.dat, data/dat/GNcol_3L.dat, data/dat/GNcol_3R.dat, data/dat/CIcol_3L.dat, data/dat/CIcol_3R.dat
+    log: logs/Zarr_to_LDNe/Zarr_to_LDNe.log
+    jobid: 0
+
+[Mon Feb 17 11:38:23 2020]
+Finished job 0.
+1 of 1 steps (100%) done
+Complete log: /home/sanj/ag1000g/Ne_Ag/.snakemake/log/2020-02-17T113021.193334.snakemake.log

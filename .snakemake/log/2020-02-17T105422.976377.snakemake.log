@@ -1,0 +1,10 @@
+FileNotFoundError in line 2 of /home/sanj/ag1000g/Ne_Ag/SnakefileZarr:
+[Errno 2] File b'/home/sanj/ag1000g/data/amples.meta.txt' does not exist: b'/home/sanj/ag1000g/data/amples.meta.txt'
+  File "/home/sanj/ag1000g/Ne_Ag/SnakefileZarr", line 2, in <module>
+  File "/home/sanj/apps/anaconda3/envs/pysanj/lib/python3.7/site-packages/pandas/io/parsers.py", line 685, in parser_f
+  File "/home/sanj/apps/anaconda3/envs/pysanj/lib/python3.7/site-packages/pandas/io/parsers.py", line 457, in _read
+  File "/home/sanj/apps/anaconda3/envs/pysanj/lib/python3.7/site-packages/pandas/io/parsers.py", line 895, in __init__
+  File "/home/sanj/apps/anaconda3/envs/pysanj/lib/python3.7/site-packages/pandas/io/parsers.py", line 1135, in _make_engine
+  File "/home/sanj/apps/anaconda3/envs/pysanj/lib/python3.7/site-packages/pandas/io/parsers.py", line 1917, in __init__
+  File "pandas/_libs/parsers.pyx", line 382, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 689, in pandas._libs.parsers.TextReader._setup_parser_source
