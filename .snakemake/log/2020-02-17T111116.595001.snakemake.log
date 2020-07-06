@@ -1,0 +1,4 @@
+Building DAG of jobs...
+MissingInputException in line 72 of /home/sanj/ag1000g/Ne_Ag/SnakefileZarr:
+Missing input files for rule Zarr_to_LDNe:
+../data/samples.meta/txt

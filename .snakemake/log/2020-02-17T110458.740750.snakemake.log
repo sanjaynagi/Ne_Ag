@@ -1,0 +1,3 @@
+TypeError in line 76 of /home/sanj/ag1000g/Ne_Ag/SnakefileZarr:
+string indices must be integers
+  File "/home/sanj/ag1000g/Ne_Ag/SnakefileZarr", line 76, in <module>

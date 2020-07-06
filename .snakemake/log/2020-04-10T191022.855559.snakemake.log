@@ -1,0 +1,32 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	Zarr_to_LDNe
+	1	all_ldne
+	32	run_ldne
+	34
+
+[Fri Apr 10 19:10:23 2020]
+rule Zarr_to_LDNe:
+    input: ../data/ag1000g.phase2.ar1.pass/, ../data/reference/Anopheles-gambiae-PEST_BASEFEATURES_AgamP4.12.gff3, ../data/samples.meta.txt
+    output: data/dat/GHcol_3L.dat, data/dat/GHcol_3R.dat, data/dat/GHgam_3L.dat, data/dat/GHgam_3R.dat, data/dat/BFgam_3L.dat, data/dat/BFgam_3R.dat, data/dat/BFcol_3L.dat, data/dat/BFcol_3R.dat, data/dat/UGgam_3L.dat, data/dat/UGgam_3R.dat, data/dat/GM_3L.dat, data/dat/GM_3R.dat, data/dat/GW_3L.dat, data/dat/GW_3R.dat, data/dat/KE_3L.dat, data/dat/KE_3R.dat, data/dat/CMgam_3L.dat, data/dat/CMgam_3R.dat, data/dat/FRgam_3L.dat, data/dat/FRgam_3R.dat, data/dat/GQgam_3L.dat, data/dat/GQgam_3R.dat, data/dat/AOcol_3L.dat, data/dat/AOcol_3R.dat, data/dat/GAgam_3L.dat, data/dat/GAgam_3R.dat, data/dat/GNgam_3L.dat, data/dat/GNgam_3R.dat, data/dat/GNcol_3L.dat, data/dat/GNcol_3R.dat, data/dat/CIcol_3L.dat, data/dat/CIcol_3R.dat
+    log: logs/Zarr_to_LDNe/Zarr_to_LDNe.log
+    jobid: 33
+
+[Fri Apr 10 19:22:09 2020]
+Error in rule Zarr_to_LDNe:
+    jobid: 33
+    output: data/dat/GHcol_3L.dat, data/dat/GHcol_3R.dat, data/dat/GHgam_3L.dat, data/dat/GHgam_3R.dat, data/dat/BFgam_3L.dat, data/dat/BFgam_3R.dat, data/dat/BFcol_3L.dat, data/dat/BFcol_3R.dat, data/dat/UGgam_3L.dat, data/dat/UGgam_3R.dat, data/dat/GM_3L.dat, data/dat/GM_3R.dat, data/dat/GW_3L.dat, data/dat/GW_3R.dat, data/dat/KE_3L.dat, data/dat/KE_3R.dat, data/dat/CMgam_3L.dat, data/dat/CMgam_3R.dat, data/dat/FRgam_3L.dat, data/dat/FRgam_3R.dat, data/dat/GQgam_3L.dat, data/dat/GQgam_3R.dat, data/dat/AOcol_3L.dat, data/dat/AOcol_3R.dat, data/dat/GAgam_3L.dat, data/dat/GAgam_3R.dat, data/dat/GNgam_3L.dat, data/dat/GNgam_3R.dat, data/dat/GNcol_3L.dat, data/dat/GNcol_3R.dat, data/dat/CIcol_3L.dat, data/dat/CIcol_3R.dat
+    log: logs/Zarr_to_LDNe/Zarr_to_LDNe.log (check log file(s) for error message)
+    shell:
+        python analysis/scripts/Zarr_to_LDNe.py --n 100000 --zarr ../data/ag1000g.phase2.ar1.pass/ --gff ../data/reference/Anopheles-gambiae-PEST_BASEFEATURES_AgamP4.12.gff3 --samples ../data/samples.meta.txt 2> logs/Zarr_to_LDNe/Zarr_to_LDNe.log
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Removing output files of failed job Zarr_to_LDNe since they might be corrupted:
+data/dat/GHcol_3L.dat, data/dat/GHgam_3L.dat, data/dat/BFgam_3L.dat, data/dat/BFcol_3L.dat, data/dat/UGgam_3L.dat, data/dat/GM_3L.dat, data/dat/GW_3L.dat, data/dat/KE_3L.dat, data/dat/CMgam_3L.dat, data/dat/FRgam_3L.dat, data/dat/GQgam_3L.dat, data/dat/AOcol_3L.dat, data/dat/GAgam_3L.dat, data/dat/GNgam_3L.dat, data/dat/GNcol_3L.dat, data/dat/CIcol_3L.dat
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /home/sanj/ag1000g/Ne_Ag/.snakemake/log/2020-04-10T191022.855559.snakemake.log

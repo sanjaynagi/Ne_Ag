@@ -1,5 +1,5 @@
 Output from NeEstimator v2.1
-Starting time: Fri Jan 24 06:04:56 2020
+Starting time: Thu Apr 30 14:04:30 2020
 
 Mating Model: Random
 
@@ -10,14 +10,14 @@ Up to 17 righmost characters can be shown for population names.
 Input File Number   #Loci  Population #   Samp  Weighted      #Indep.   r^2     Exp(r^2)       Ne^                 CIs for Ne^
 then :Name                 then by :Name  Size  H. Mean       Alleles            Sample                    Parametric       Jackknife Samp  (Eff.df)
 ----------------------------------------------------------------------------------------------------------------------------------------------------
-1:GNcol_3L.dat      10000
+1:GNcol_3L.dat      20000
 -------------------------
-                           1:GNcol_3L       4      4.0    43216582  0.489878  0.506153      -20.5  Infinite  Infinite       7.4  Infinite       912
+                           1:GNcol_3L       4      4.0   206318822  0.486811  0.506050      -17.5  Infinite  Infinite       8.5  Infinite       905
 
 -------------------------------------
 Total number of populations =       1
 -------------------------------------
 
-Ending time: Fri Jan 24 12:16:01 2020
+Ending time: Thu Apr 30 14:09:37 2020
 -------------------------------------
 

@@ -1,0 +1,176 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	Zarr_to_LDNe
+	1	all_ldne
+	31	create_batch_file
+	32	run_ldne
+	65
+
+[Sun Apr 12 20:51:01 2020]
+rule Zarr_to_LDNe:
+    input: ../data/ag1000g.phase2.ar1.pass/, ../data/reference/Anopheles-gambiae-PEST_BASEFEATURES_AgamP4.12.gff3, ../data/samples.meta.txt
+    output: data/dat/GHcol_3L.dat, data/dat/GHcol_3R.dat, data/dat/GHgam_3L.dat, data/dat/GHgam_3R.dat, data/dat/BFgam_3L.dat, data/dat/BFgam_3R.dat, data/dat/BFcol_3L.dat, data/dat/BFcol_3R.dat, data/dat/UGgam_3L.dat, data/dat/UGgam_3R.dat, data/dat/GM_3L.dat, data/dat/GM_3R.dat, data/dat/GW_3L.dat, data/dat/GW_3R.dat, data/dat/KE_3L.dat, data/dat/KE_3R.dat, data/dat/CMgam_3L.dat, data/dat/CMgam_3R.dat, data/dat/FRgam_3L.dat, data/dat/FRgam_3R.dat, data/dat/GQgam_3L.dat, data/dat/GQgam_3R.dat, data/dat/AOcol_3L.dat, data/dat/AOcol_3R.dat, data/dat/GAgam_3L.dat, data/dat/GAgam_3R.dat, data/dat/GNgam_3L.dat, data/dat/GNgam_3R.dat, data/dat/GNcol_3L.dat, data/dat/GNcol_3R.dat, data/dat/CIcol_3L.dat, data/dat/CIcol_3R.dat
+    log: logs/Zarr_to_LDNe/Zarr_to_LDNe.log
+    jobid: 33
+
+[Sun Apr 12 21:04:58 2020]
+Finished job 33.
+1 of 65 steps (2%) done
+
+[Sun Apr 12 21:04:58 2020]
+rule run_ldne:
+    input: data/dat/KE_3R.dat, analysis/LDNe/batch/ag_batch_KE_3R.txt
+    output: analysis/LDNe/Ag_LDNe_KE_3R.out
+    log: logs/ldne/KE_3R.log
+    jobid: 16
+    wildcards: pop=KE, chrom=3R
+
+[Mon Apr 13 09:04:03 2020]
+Finished job 16.
+2 of 65 steps (3%) done
+
+[Mon Apr 13 09:04:03 2020]
+rule create_batch_file:
+    output: analysis/LDNe/batch/ag_batch_BFcol_3L.txt
+    jobid: 40
+    wildcards: pop=BFcol, chrom=3L
+
+[Mon Apr 13 09:04:04 2020]
+Finished job 40.
+3 of 65 steps (5%) done
+
+[Mon Apr 13 09:04:04 2020]
+rule run_ldne:
+    input: data/dat/BFcol_3L.dat, analysis/LDNe/batch/ag_batch_BFcol_3L.txt
+    output: analysis/LDNe/Ag_LDNe_BFcol_3L.out
+    log: logs/ldne/BFcol_3L.log
+    jobid: 7
+    wildcards: pop=BFcol, chrom=3L
+
+[Mon Apr 13 09:28:26 2020]
+Finished job 7.
+4 of 65 steps (6%) done
+
+[Mon Apr 13 09:28:26 2020]
+rule create_batch_file:
+    output: analysis/LDNe/batch/ag_batch_GW_3R.txt
+    jobid: 47
+    wildcards: pop=GW, chrom=3R
+
+[Mon Apr 13 09:28:27 2020]
+Finished job 47.
+5 of 65 steps (8%) done
+
+[Mon Apr 13 09:28:27 2020]
+rule run_ldne:
+    input: data/dat/GW_3R.dat, analysis/LDNe/batch/ag_batch_GW_3R.txt
+    output: analysis/LDNe/Ag_LDNe_GW_3R.out
+    log: logs/ldne/GW_3R.log
+    jobid: 14
+    wildcards: pop=GW, chrom=3R
+
+[Mon Apr 13 10:02:10 2020]
+Finished job 14.
+6 of 65 steps (9%) done
+
+[Mon Apr 13 10:02:10 2020]
+rule create_batch_file:
+    output: analysis/LDNe/batch/ag_batch_GHgam_3L.txt
+    jobid: 36
+    wildcards: pop=GHgam, chrom=3L
+
+[Mon Apr 13 10:02:11 2020]
+Finished job 36.
+7 of 65 steps (11%) done
+
+[Mon Apr 13 10:02:11 2020]
+rule run_ldne:
+    input: data/dat/GHgam_3L.dat, analysis/LDNe/batch/ag_batch_GHgam_3L.txt
+    output: analysis/LDNe/Ag_LDNe_GHgam_3L.out
+    log: logs/ldne/GHgam_3L.log
+    jobid: 3
+    wildcards: pop=GHgam, chrom=3L
+
+[Mon Apr 13 10:07:43 2020]
+Finished job 3.
+8 of 65 steps (12%) done
+
+[Mon Apr 13 10:07:43 2020]
+rule create_batch_file:
+    output: analysis/LDNe/batch/ag_batch_CIcol_3R.txt
+    jobid: 65
+    wildcards: pop=CIcol, chrom=3R
+
+[Mon Apr 13 10:07:43 2020]
+Finished job 65.
+9 of 65 steps (14%) done
+
+[Mon Apr 13 10:07:43 2020]
+rule run_ldne:
+    input: data/dat/CIcol_3R.dat, analysis/LDNe/batch/ag_batch_CIcol_3R.txt
+    output: analysis/LDNe/Ag_LDNe_CIcol_3R.out
+    log: logs/ldne/CIcol_3R.log
+    jobid: 32
+    wildcards: pop=CIcol, chrom=3R
+
+[Mon Apr 13 10:31:37 2020]
+Finished job 32.
+10 of 65 steps (15%) done
+
+[Mon Apr 13 10:31:37 2020]
+rule create_batch_file:
+    output: analysis/LDNe/batch/ag_batch_BFgam_3L.txt
+    jobid: 38
+    wildcards: pop=BFgam, chrom=3L
+
+[Mon Apr 13 10:31:38 2020]
+Finished job 38.
+11 of 65 steps (17%) done
+
+[Mon Apr 13 10:31:38 2020]
+rule run_ldne:
+    input: data/dat/BFgam_3L.dat, analysis/LDNe/batch/ag_batch_BFgam_3L.txt
+    output: analysis/LDNe/Ag_LDNe_BFgam_3L.out
+    log: logs/ldne/BFgam_3L.log
+    jobid: 5
+    wildcards: pop=BFgam, chrom=3L
+
+[Mon Apr 13 13:12:51 2020]
+Finished job 5.
+12 of 65 steps (18%) done
+
+[Mon Apr 13 13:12:51 2020]
+rule create_batch_file:
+    output: analysis/LDNe/batch/ag_batch_FRgam_3L.txt
+    jobid: 52
+    wildcards: pop=FRgam, chrom=3L
+
+[Mon Apr 13 13:12:52 2020]
+Finished job 52.
+13 of 65 steps (20%) done
+
+[Mon Apr 13 13:12:52 2020]
+rule run_ldne:
+    input: data/dat/FRgam_3L.dat, analysis/LDNe/batch/ag_batch_FRgam_3L.txt
+    output: analysis/LDNe/Ag_LDNe_FRgam_3L.out
+    log: logs/ldne/FRgam_3L.log
+    jobid: 19
+    wildcards: pop=FRgam, chrom=3L
+
+Terminating processes on user request, this might take some time.
+[Mon Apr 13 13:22:14 2020]
+Error in rule run_ldne:
+    jobid: 19
+    output: analysis/LDNe/Ag_LDNe_FRgam_3L.out
+    log: logs/ldne/FRgam_3L.log (check log file(s) for error message)
+    shell:
+        ~/apps/NeEstimator/Ne2-1L c:analysis/LDNe/batch/ag_batch_FRgam_3L.txt 2> logs/ldne/FRgam_3L.log
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Removing output files of failed job run_ldne since they might be corrupted:
+analysis/LDNe/Ag_LDNe_FRgam_3L.out
+Complete log: /home/sanj/ag1000g/Ne_Ag/.snakemake/log/2020-04-12T205101.059389.snakemake.log

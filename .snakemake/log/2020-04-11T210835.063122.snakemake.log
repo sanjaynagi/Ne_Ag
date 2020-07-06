@@ -1,0 +1,415 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	Zarr_to_LDNe
+	1	all_ldne
+	32	run_ldne
+	34
+
+[Sat Apr 11 21:08:35 2020]
+rule Zarr_to_LDNe:
+    input: ../data/ag1000g.phase2.ar1.pass/, ../data/reference/Anopheles-gambiae-PEST_BASEFEATURES_AgamP4.12.gff3, ../data/samples.meta.txt
+    output: data/dat/GHcol_3L.dat, data/dat/GHcol_3R.dat, data/dat/GHgam_3L.dat, data/dat/GHgam_3R.dat, data/dat/BFgam_3L.dat, data/dat/BFgam_3R.dat, data/dat/BFcol_3L.dat, data/dat/BFcol_3R.dat, data/dat/UGgam_3L.dat, data/dat/UGgam_3R.dat, data/dat/GM_3L.dat, data/dat/GM_3R.dat, data/dat/GW_3L.dat, data/dat/GW_3R.dat, data/dat/KE_3L.dat, data/dat/KE_3R.dat, data/dat/CMgam_3L.dat, data/dat/CMgam_3R.dat, data/dat/FRgam_3L.dat, data/dat/FRgam_3R.dat, data/dat/GQgam_3L.dat, data/dat/GQgam_3R.dat, data/dat/AOcol_3L.dat, data/dat/AOcol_3R.dat, data/dat/GAgam_3L.dat, data/dat/GAgam_3R.dat, data/dat/GNgam_3L.dat, data/dat/GNgam_3R.dat, data/dat/GNcol_3L.dat, data/dat/GNcol_3R.dat, data/dat/CIcol_3L.dat, data/dat/CIcol_3R.dat
+    log: logs/Zarr_to_LDNe/Zarr_to_LDNe.log
+    jobid: 33
+
+[Sat Apr 11 21:39:18 2020]
+Finished job 33.
+1 of 34 steps (3%) done
+
+[Sat Apr 11 21:39:18 2020]
+rule run_ldne:
+    input: data/dat/CMgam_3L.dat, analysis/LDNe/batch/ag_batch_CMgam_3L.txt
+    output: analysis/LDNe/Ag_LDNe_CMgam_3L.out
+    log: logs/ldne/CMgam_3L.log
+    jobid: 17
+    wildcards: pop=CMgam, chrom=3L
+
+[Sat Apr 11 21:39:18 2020]
+Finished job 17.
+2 of 34 steps (6%) done
+
+[Sat Apr 11 21:39:18 2020]
+rule run_ldne:
+    input: data/dat/CMgam_3R.dat, analysis/LDNe/batch/ag_batch_CMgam_3R.txt
+    output: analysis/LDNe/Ag_LDNe_CMgam_3R.out
+    log: logs/ldne/CMgam_3R.log
+    jobid: 18
+    wildcards: pop=CMgam, chrom=3R
+
+[Sat Apr 11 21:39:18 2020]
+Finished job 18.
+3 of 34 steps (9%) done
+
+[Sat Apr 11 21:39:18 2020]
+rule run_ldne:
+    input: data/dat/UGgam_3L.dat, analysis/LDNe/batch/ag_batch_UGgam_3L.txt
+    output: analysis/LDNe/Ag_LDNe_UGgam_3L.out
+    log: logs/ldne/UGgam_3L.log
+    jobid: 9
+    wildcards: pop=UGgam, chrom=3L
+
+[Sat Apr 11 21:39:18 2020]
+Finished job 9.
+4 of 34 steps (12%) done
+
+[Sat Apr 11 21:39:18 2020]
+rule run_ldne:
+    input: data/dat/UGgam_3R.dat, analysis/LDNe/batch/ag_batch_UGgam_3R.txt
+    output: analysis/LDNe/Ag_LDNe_UGgam_3R.out
+    log: logs/ldne/UGgam_3R.log
+    jobid: 10
+    wildcards: pop=UGgam, chrom=3R
+
+[Sat Apr 11 21:39:18 2020]
+Finished job 10.
+5 of 34 steps (15%) done
+
+[Sat Apr 11 21:39:18 2020]
+rule run_ldne:
+    input: data/dat/BFgam_3L.dat, analysis/LDNe/batch/ag_batch_BFgam_3L.txt
+    output: analysis/LDNe/Ag_LDNe_BFgam_3L.out
+    log: logs/ldne/BFgam_3L.log
+    jobid: 5
+    wildcards: pop=BFgam, chrom=3L
+
+[Sat Apr 11 21:39:18 2020]
+Finished job 5.
+6 of 34 steps (18%) done
+
+[Sat Apr 11 21:39:18 2020]
+rule run_ldne:
+    input: data/dat/BFgam_3R.dat, analysis/LDNe/batch/ag_batch_BFgam_3R.txt
+    output: analysis/LDNe/Ag_LDNe_BFgam_3R.out
+    log: logs/ldne/BFgam_3R.log
+    jobid: 6
+    wildcards: pop=BFgam, chrom=3R
+
+[Sat Apr 11 21:39:18 2020]
+Finished job 6.
+7 of 34 steps (21%) done
+
+[Sat Apr 11 21:39:18 2020]
+rule run_ldne:
+    input: data/dat/GW_3L.dat, analysis/LDNe/batch/ag_batch_GW_3L.txt
+    output: analysis/LDNe/Ag_LDNe_GW_3L.out
+    log: logs/ldne/GW_3L.log
+    jobid: 13
+    wildcards: pop=GW, chrom=3L
+
+[Sat Apr 11 21:39:18 2020]
+Finished job 13.
+8 of 34 steps (24%) done
+
+[Sat Apr 11 21:39:18 2020]
+rule run_ldne:
+    input: data/dat/GW_3R.dat, analysis/LDNe/batch/ag_batch_GW_3R.txt
+    output: analysis/LDNe/Ag_LDNe_GW_3R.out
+    log: logs/ldne/GW_3R.log
+    jobid: 14
+    wildcards: pop=GW, chrom=3R
+
+[Sat Apr 11 21:39:18 2020]
+Finished job 14.
+9 of 34 steps (26%) done
+
+[Sat Apr 11 21:39:18 2020]
+rule run_ldne:
+    input: data/dat/AOcol_3L.dat, analysis/LDNe/batch/ag_batch_AOcol_3L.txt
+    output: analysis/LDNe/Ag_LDNe_AOcol_3L.out
+    log: logs/ldne/AOcol_3L.log
+    jobid: 23
+    wildcards: pop=AOcol, chrom=3L
+
+[Sat Apr 11 21:39:18 2020]
+Finished job 23.
+10 of 34 steps (29%) done
+
+[Sat Apr 11 21:39:18 2020]
+rule run_ldne:
+    input: data/dat/AOcol_3R.dat, analysis/LDNe/batch/ag_batch_AOcol_3R.txt
+    output: analysis/LDNe/Ag_LDNe_AOcol_3R.out
+    log: logs/ldne/AOcol_3R.log
+    jobid: 24
+    wildcards: pop=AOcol, chrom=3R
+
+[Sat Apr 11 21:39:18 2020]
+Finished job 24.
+11 of 34 steps (32%) done
+
+[Sat Apr 11 21:39:19 2020]
+rule run_ldne:
+    input: data/dat/BFcol_3L.dat, analysis/LDNe/batch/ag_batch_BFcol_3L.txt
+    output: analysis/LDNe/Ag_LDNe_BFcol_3L.out
+    log: logs/ldne/BFcol_3L.log
+    jobid: 7
+    wildcards: pop=BFcol, chrom=3L
+
+[Sat Apr 11 21:39:19 2020]
+Finished job 7.
+12 of 34 steps (35%) done
+
+[Sat Apr 11 21:39:19 2020]
+rule run_ldne:
+    input: data/dat/BFcol_3R.dat, analysis/LDNe/batch/ag_batch_BFcol_3R.txt
+    output: analysis/LDNe/Ag_LDNe_BFcol_3R.out
+    log: logs/ldne/BFcol_3R.log
+    jobid: 8
+    wildcards: pop=BFcol, chrom=3R
+
+[Sat Apr 11 21:39:19 2020]
+Finished job 8.
+13 of 34 steps (38%) done
+
+[Sat Apr 11 21:39:19 2020]
+rule run_ldne:
+    input: data/dat/CIcol_3L.dat, analysis/LDNe/batch/ag_batch_CIcol_3L.txt
+    output: analysis/LDNe/Ag_LDNe_CIcol_3L.out
+    log: logs/ldne/CIcol_3L.log
+    jobid: 31
+    wildcards: pop=CIcol, chrom=3L
+
+[Sat Apr 11 21:39:19 2020]
+Finished job 31.
+14 of 34 steps (41%) done
+
+[Sat Apr 11 21:39:19 2020]
+rule run_ldne:
+    input: data/dat/CIcol_3R.dat, analysis/LDNe/batch/ag_batch_CIcol_3R.txt
+    output: analysis/LDNe/Ag_LDNe_CIcol_3R.out
+    log: logs/ldne/CIcol_3R.log
+    jobid: 32
+    wildcards: pop=CIcol, chrom=3R
+
+[Sat Apr 11 21:39:19 2020]
+Finished job 32.
+15 of 34 steps (44%) done
+
+[Sat Apr 11 21:39:19 2020]
+rule run_ldne:
+    input: data/dat/GAgam_3L.dat, analysis/LDNe/batch/ag_batch_GAgam_3L.txt
+    output: analysis/LDNe/Ag_LDNe_GAgam_3L.out
+    log: logs/ldne/GAgam_3L.log
+    jobid: 25
+    wildcards: pop=GAgam, chrom=3L
+
+[Sat Apr 11 21:39:19 2020]
+Finished job 25.
+16 of 34 steps (47%) done
+
+[Sat Apr 11 21:39:19 2020]
+rule run_ldne:
+    input: data/dat/GAgam_3R.dat, analysis/LDNe/batch/ag_batch_GAgam_3R.txt
+    output: analysis/LDNe/Ag_LDNe_GAgam_3R.out
+    log: logs/ldne/GAgam_3R.log
+    jobid: 26
+    wildcards: pop=GAgam, chrom=3R
+
+[Sat Apr 11 21:39:19 2020]
+Finished job 26.
+17 of 34 steps (50%) done
+
+[Sat Apr 11 21:39:19 2020]
+rule run_ldne:
+    input: data/dat/GM_3L.dat, analysis/LDNe/batch/ag_batch_GM_3L.txt
+    output: analysis/LDNe/Ag_LDNe_GM_3L.out
+    log: logs/ldne/GM_3L.log
+    jobid: 11
+    wildcards: pop=GM, chrom=3L
+
+[Sat Apr 11 21:39:19 2020]
+Finished job 11.
+18 of 34 steps (53%) done
+
+[Sat Apr 11 21:39:19 2020]
+rule run_ldne:
+    input: data/dat/GM_3R.dat, analysis/LDNe/batch/ag_batch_GM_3R.txt
+    output: analysis/LDNe/Ag_LDNe_GM_3R.out
+    log: logs/ldne/GM_3R.log
+    jobid: 12
+    wildcards: pop=GM, chrom=3R
+
+[Sat Apr 11 21:39:19 2020]
+Finished job 12.
+19 of 34 steps (56%) done
+
+[Sat Apr 11 21:39:19 2020]
+rule run_ldne:
+    input: data/dat/GHcol_3L.dat, analysis/LDNe/batch/ag_batch_GHcol_3L.txt
+    output: analysis/LDNe/Ag_LDNe_GHcol_3L.out
+    log: logs/ldne/GHcol_3L.log
+    jobid: 1
+    wildcards: pop=GHcol, chrom=3L
+
+[Sat Apr 11 21:39:19 2020]
+Finished job 1.
+20 of 34 steps (59%) done
+
+[Sat Apr 11 21:39:19 2020]
+rule run_ldne:
+    input: data/dat/GHcol_3R.dat, analysis/LDNe/batch/ag_batch_GHcol_3R.txt
+    output: analysis/LDNe/Ag_LDNe_GHcol_3R.out
+    log: logs/ldne/GHcol_3R.log
+    jobid: 2
+    wildcards: pop=GHcol, chrom=3R
+
+[Sat Apr 11 21:39:20 2020]
+Finished job 2.
+21 of 34 steps (62%) done
+
+[Sat Apr 11 21:39:20 2020]
+rule run_ldne:
+    input: data/dat/KE_3L.dat, analysis/LDNe/batch/ag_batch_KE_3L.txt
+    output: analysis/LDNe/Ag_LDNe_KE_3L.out
+    log: logs/ldne/KE_3L.log
+    jobid: 15
+    wildcards: pop=KE, chrom=3L
+
+[Sat Apr 11 21:39:20 2020]
+Finished job 15.
+22 of 34 steps (65%) done
+
+[Sat Apr 11 21:39:20 2020]
+rule run_ldne:
+    input: data/dat/KE_3R.dat, analysis/LDNe/batch/ag_batch_KE_3R.txt
+    output: analysis/LDNe/Ag_LDNe_KE_3R.out
+    log: logs/ldne/KE_3R.log
+    jobid: 16
+    wildcards: pop=KE, chrom=3R
+
+[Sat Apr 11 21:39:20 2020]
+Finished job 16.
+23 of 34 steps (68%) done
+
+[Sat Apr 11 21:39:20 2020]
+rule run_ldne:
+    input: data/dat/GNgam_3L.dat, analysis/LDNe/batch/ag_batch_GNgam_3L.txt
+    output: analysis/LDNe/Ag_LDNe_GNgam_3L.out
+    log: logs/ldne/GNgam_3L.log
+    jobid: 27
+    wildcards: pop=GNgam, chrom=3L
+
+[Sat Apr 11 21:39:20 2020]
+Finished job 27.
+24 of 34 steps (71%) done
+
+[Sat Apr 11 21:39:20 2020]
+rule run_ldne:
+    input: data/dat/GNgam_3R.dat, analysis/LDNe/batch/ag_batch_GNgam_3R.txt
+    output: analysis/LDNe/Ag_LDNe_GNgam_3R.out
+    log: logs/ldne/GNgam_3R.log
+    jobid: 28
+    wildcards: pop=GNgam, chrom=3R
+
+[Sat Apr 11 21:39:20 2020]
+Finished job 28.
+25 of 34 steps (74%) done
+
+[Sat Apr 11 21:39:20 2020]
+rule run_ldne:
+    input: data/dat/FRgam_3L.dat, analysis/LDNe/batch/ag_batch_FRgam_3L.txt
+    output: analysis/LDNe/Ag_LDNe_FRgam_3L.out
+    log: logs/ldne/FRgam_3L.log
+    jobid: 19
+    wildcards: pop=FRgam, chrom=3L
+
+[Sat Apr 11 21:39:20 2020]
+Finished job 19.
+26 of 34 steps (76%) done
+
+[Sat Apr 11 21:39:20 2020]
+rule run_ldne:
+    input: data/dat/FRgam_3R.dat, analysis/LDNe/batch/ag_batch_FRgam_3R.txt
+    output: analysis/LDNe/Ag_LDNe_FRgam_3R.out
+    log: logs/ldne/FRgam_3R.log
+    jobid: 20
+    wildcards: pop=FRgam, chrom=3R
+
+[Sat Apr 11 21:39:20 2020]
+Finished job 20.
+27 of 34 steps (79%) done
+
+[Sat Apr 11 21:39:20 2020]
+rule run_ldne:
+    input: data/dat/GHgam_3L.dat, analysis/LDNe/batch/ag_batch_GHgam_3L.txt
+    output: analysis/LDNe/Ag_LDNe_GHgam_3L.out
+    log: logs/ldne/GHgam_3L.log
+    jobid: 3
+    wildcards: pop=GHgam, chrom=3L
+
+[Sat Apr 11 21:39:21 2020]
+Finished job 3.
+28 of 34 steps (82%) done
+
+[Sat Apr 11 21:39:21 2020]
+rule run_ldne:
+    input: data/dat/GHgam_3R.dat, analysis/LDNe/batch/ag_batch_GHgam_3R.txt
+    output: analysis/LDNe/Ag_LDNe_GHgam_3R.out
+    log: logs/ldne/GHgam_3R.log
+    jobid: 4
+    wildcards: pop=GHgam, chrom=3R
+
+[Sat Apr 11 21:39:21 2020]
+Finished job 4.
+29 of 34 steps (85%) done
+
+[Sat Apr 11 21:39:21 2020]
+rule run_ldne:
+    input: data/dat/GQgam_3L.dat, analysis/LDNe/batch/ag_batch_GQgam_3L.txt
+    output: analysis/LDNe/Ag_LDNe_GQgam_3L.out
+    log: logs/ldne/GQgam_3L.log
+    jobid: 21
+    wildcards: pop=GQgam, chrom=3L
+
+[Sat Apr 11 21:39:21 2020]
+Finished job 21.
+30 of 34 steps (88%) done
+
+[Sat Apr 11 21:39:21 2020]
+rule run_ldne:
+    input: data/dat/GQgam_3R.dat, analysis/LDNe/batch/ag_batch_GQgam_3R.txt
+    output: analysis/LDNe/Ag_LDNe_GQgam_3R.out
+    log: logs/ldne/GQgam_3R.log
+    jobid: 22
+    wildcards: pop=GQgam, chrom=3R
+
+[Sat Apr 11 21:39:21 2020]
+Finished job 22.
+31 of 34 steps (91%) done
+
+[Sat Apr 11 21:39:21 2020]
+rule run_ldne:
+    input: data/dat/GNcol_3L.dat, analysis/LDNe/batch/ag_batch_GNcol_3L.txt
+    output: analysis/LDNe/Ag_LDNe_GNcol_3L.out
+    log: logs/ldne/GNcol_3L.log
+    jobid: 29
+    wildcards: pop=GNcol, chrom=3L
+
+[Sat Apr 11 21:39:21 2020]
+Finished job 29.
+32 of 34 steps (94%) done
+
+[Sat Apr 11 21:39:21 2020]
+rule run_ldne:
+    input: data/dat/GNcol_3R.dat, analysis/LDNe/batch/ag_batch_GNcol_3R.txt
+    output: analysis/LDNe/Ag_LDNe_GNcol_3R.out
+    log: logs/ldne/GNcol_3R.log
+    jobid: 30
+    wildcards: pop=GNcol, chrom=3R
+
+[Sat Apr 11 21:39:22 2020]
+Finished job 30.
+33 of 34 steps (97%) done
+
+[Sat Apr 11 21:39:22 2020]
+localrule all_ldne:
+    input: analysis/LDNe/Ag_LDNe_GHcol_3L.out, analysis/LDNe/Ag_LDNe_GHcol_3R.out, analysis/LDNe/Ag_LDNe_GHgam_3L.out, analysis/LDNe/Ag_LDNe_GHgam_3R.out, analysis/LDNe/Ag_LDNe_BFgam_3L.out, analysis/LDNe/Ag_LDNe_BFgam_3R.out, analysis/LDNe/Ag_LDNe_BFcol_3L.out, analysis/LDNe/Ag_LDNe_BFcol_3R.out, analysis/LDNe/Ag_LDNe_UGgam_3L.out, analysis/LDNe/Ag_LDNe_UGgam_3R.out, analysis/LDNe/Ag_LDNe_GM_3L.out, analysis/LDNe/Ag_LDNe_GM_3R.out, analysis/LDNe/Ag_LDNe_GW_3L.out, analysis/LDNe/Ag_LDNe_GW_3R.out, analysis/LDNe/Ag_LDNe_KE_3L.out, analysis/LDNe/Ag_LDNe_KE_3R.out, analysis/LDNe/Ag_LDNe_CMgam_3L.out, analysis/LDNe/Ag_LDNe_CMgam_3R.out, analysis/LDNe/Ag_LDNe_FRgam_3L.out, analysis/LDNe/Ag_LDNe_FRgam_3R.out, analysis/LDNe/Ag_LDNe_GQgam_3L.out, analysis/LDNe/Ag_LDNe_GQgam_3R.out, analysis/LDNe/Ag_LDNe_AOcol_3L.out, analysis/LDNe/Ag_LDNe_AOcol_3R.out, analysis/LDNe/Ag_LDNe_GAgam_3L.out, analysis/LDNe/Ag_LDNe_GAgam_3R.out, analysis/LDNe/Ag_LDNe_GNgam_3L.out, analysis/LDNe/Ag_LDNe_GNgam_3R.out, analysis/LDNe/Ag_LDNe_GNcol_3L.out, analysis/LDNe/Ag_LDNe_GNcol_3R.out, analysis/LDNe/Ag_LDNe_CIcol_3L.out, analysis/LDNe/Ag_LDNe_CIcol_3R.out
+    jobid: 0
+
+[Sat Apr 11 21:39:22 2020]
+Finished job 0.
+34 of 34 steps (100%) done
+Complete log: /home/sanj/ag1000g/Ne_Ag/.snakemake/log/2020-04-11T210835.063122.snakemake.log

@@ -1,41 +1,34 @@
 Output from NeEstimator v2.1
-Starting time: Wed Jan 15 22:51:49 2020
+Starting time: Thu Apr 30 12:08:45 2020
 Input File #1: "data/dat/BFgam_3R.dat"
 
-Number of Loci = 10000
-
-Non-polymorphic loci:   387,   891,  1229,  1327,  2437,  2538,  2562,  3017,
-         3542,  3619,  3687,  5142,  5679,  5796,  6015,  6409,  6461,  7199,
-         7342,  7631,  7799,  8318,  8394,  8821,  8846,  8980,  9024,  9129,
-         9280,  9302,  9341,  9361,  9406,  9445,  9488,  9612,  9736,  9776,
-         9898,  9909,  9952
-Total non-polymorphic = 41
+Number of Loci = 20000
 
 LD mating model: Random
 
 Population     1 [BFgam_3R]  (Number of Individuals = 92)
 ****************
---------------------------------------------------------------------------
-Lowest Allele Frequency Used     0.050       0.020       0.010         0+
---------------------------------------------------------------------------
+--------------------------------------
+Lowest Allele Frequency Used     0.050  
+--------------------------------------
 
 LINKAGE DISEQUILIBRIUM METHOD
 
-Harmonic Mean Sample Size =       92.0        92.0        92.0        92.0
-Independent Comparisons =    2520667     8645507    23229681    60567307
-OverAll r^2 =                 0.011443    0.011423    0.011367    0.011257
-Expected r^2 Sample =         0.011247    0.011247    0.011248    0.011248
-Estimated Ne^ =                 1699.6      1894.5      2802.7     35385.9
+Harmonic Mean Sample Size =       92.0
+Independent Comparisons =   10334654
+OverAll r^2 =                 0.011391
+Expected r^2 Sample =         0.011246
+Estimated Ne^ =                 2298.1
 
 95% CIs for Ne^
-* Parametric                    1541.9      1784.9      2656.4     24818.6
-                                1892.6      2018.2      2965.9     61601.0
+* Parametric                    2152.0
+                                2465.2
 
-* JackKnife on Samples          1040.1      1095.9      1429.4      5595.8
-                                4508.3      6659.9     51121.2    Infinite
+* JackKnife on Samples          1334.0
+                                7979.6
 
-**************************************************************************
+**************************************
 
-Ending time: Wed Jan 15 23:24:50 2020
+Ending time: Thu Apr 30 12:12:31 2020
 -------------------------------------
 

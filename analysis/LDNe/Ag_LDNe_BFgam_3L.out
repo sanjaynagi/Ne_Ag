@@ -1,40 +1,34 @@
 Output from NeEstimator v2.1
-Starting time: Thu Jan 16 11:41:12 2020
+Starting time: Thu Apr 30 12:08:17 2020
 Input File #1: "data/dat/BFgam_3L.dat"
 
-Number of Loci = 10000
-
-Non-polymorphic loci:    18,   241,   554,   592,   634,   673,   748,   923,
-         1213,  1225,  1227,  1442,  1541,  1767,  2251,  2403,  2628,  2781,
-         3152,  3725,  4894,  4922,  5159,  6038,  6248,  6262,  6286,  6974,
-         7196,  7452,  8184,  8910,  9421,  9604,  9661,  9889,  9950, 10000
-Total non-polymorphic = 38
+Number of Loci = 20000
 
 LD mating model: Random
 
 Population     1 [BFgam_3L]  (Number of Individuals = 92)
 ****************
---------------------------------------------------------------------------
-Lowest Allele Frequency Used     0.050       0.020       0.010         0+
---------------------------------------------------------------------------
+--------------------------------------
+Lowest Allele Frequency Used     0.050  
+--------------------------------------
 
 LINKAGE DISEQUILIBRIUM METHOD
 
-Harmonic Mean Sample Size =       92.0        92.0        92.0        92.0
-Independent Comparisons =    2357246     7904980    21445928    60227575
-OverAll r^2 =                 0.011382    0.011356    0.011334    0.011238
-Expected r^2 Sample =         0.011249    0.011248    0.011248    0.011247
-Estimated Ne^ =                 2503.3      3085.4      3861.0    Infinite
+Harmonic Mean Sample Size =       92.0
+Independent Comparisons =    8888802
+OverAll r^2 =                 0.011358
+Expected r^2 Sample =         0.011246
+Estimated Ne^ =                 2990.6
 
 95% CIs for Ne^
-* Parametric                    2167.7      2795.1      3579.3    Infinite
-                                2960.1      3442.3      4190.5    Infinite
+* Parametric                    2731.3
+                                3303.8
 
-* JackKnife on Samples          1317.0      1501.4      1906.3     13471.6
-                               21833.9    Infinite    Infinite    Infinite
+* JackKnife on Samples          1687.4
+                               12610.3
 
-**************************************************************************
+**************************************
 
-Ending time: Thu Jan 16 12:13:15 2020
+Ending time: Thu Apr 30 12:12:10 2020
 -------------------------------------
 

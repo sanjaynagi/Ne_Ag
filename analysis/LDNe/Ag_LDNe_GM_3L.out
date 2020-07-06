@@ -1,42 +1,34 @@
 Output from NeEstimator v2.1
-Starting time: Tue Jan 28 23:11:25 2020
+Starting time: Thu Apr 30 12:58:02 2020
 Input File #1: "data/dat/GM_3L.dat"
 
-Number of Loci = 10000
-
-Non-polymorphic loci:   175,   411,   647,   654,   718,   776,   880,   892,
-          974,  1082,  1095,  1423,  1602,  1643,  1886,  2137,  2184,  2389,
-         2549,  2564,  2695,  2836,  2945,  3479,  3701,  3959,  4175,  4363,
-         4378,  4536,  4590,  4803,  4885,  5094,  5399,  5558,  5775,  5805,
-         6598,  6822,  6925,  7288,  7388,  7594,  8395,  8835,  8940,  8941,
-         9037,  9156,  9264,  9385,  9684,  9757,  9832
-Total non-polymorphic = 55
+Number of Loci = 20000
 
 LD mating model: Random
 
 Population     1 [GM_3L]  (Number of Individuals = 65)
 ****************
---------------------------------------------------------------------------
-Lowest Allele Frequency Used     0.050       0.020       0.010         0+
---------------------------------------------------------------------------
+--------------------------------------
+Lowest Allele Frequency Used     0.050  
+--------------------------------------
 
 LINKAGE DISEQUILIBRIUM METHOD
 
-Harmonic Mean Sample Size =       65.0        65.0        65.0        65.0
-Independent Comparisons =    7224108    21163961    31887895    56011023
-OverAll r^2 =                 0.016487    0.016447    0.016404    0.016275
-Expected r^2 Sample =         0.016144    0.016144    0.016144    0.016144
-Estimated Ne^ =                  969.9      1099.8      1282.3      2538.5
+Harmonic Mean Sample Size =       65.0
+Independent Comparisons =   29810049
+OverAll r^2 =                 0.016512
+Expected r^2 Sample =         0.016140
+Estimated Ne^ =                  893.8
 
 95% CIs for Ne^
-* Parametric                     924.0      1064.9      1243.6      2426.9
-                                1020.6      1137.1      1323.4      2660.9
+* Parametric                     874.1
+                                 914.5
 
-* JackKnife on Samples           783.3       875.7       987.1      1864.0
-                                1269.9      1474.2      1823.0      3967.2
+* JackKnife on Samples           743.5
+                                1118.1
 
-**************************************************************************
+**************************************
 
-Ending time: Tue Jan 28 23:37:24 2020
+Ending time: Thu Apr 30 13:05:13 2020
 -------------------------------------
 

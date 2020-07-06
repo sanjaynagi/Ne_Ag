@@ -1,0 +1,26 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all_ldne
+	31	create_batch_file
+	32	run_ldne
+	64
+
+[Mon Apr 13 13:27:50 2020]
+rule run_ldne:
+    input: data/dat/GM_3L.dat, analysis/LDNe/batch/ag_batch_GM_3L.txt
+    output: analysis/LDNe/Ag_LDNe_GM_3L.out
+    log: logs/ldne/GM_3L.log
+    jobid: 11
+    wildcards: pop=GM, chrom=3L
+
+Waiting at most 5 seconds for missing files.
+Terminating processes on user request, this might take some time.
+MissingOutputException in line 98 of /home/sanj/ag1000g/Ne_Ag/Snakefile:
+Missing files after 5 seconds:
+analysis/LDNe/Ag_LDNe_GM_3L.out
+This might be due to filesystem latency. If that is the case, consider to increase the wait time with --latency-wait.
+Complete log: /home/sanj/ag1000g/Ne_Ag/.snakemake/log/2020-04-13T132750.516615.snakemake.log

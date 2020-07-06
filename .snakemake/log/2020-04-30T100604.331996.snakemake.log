@@ -1,0 +1,507 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	Zarr_to_LDNe
+	1	all_ldne
+	48	create_batch_file
+	80	run_ldne
+	130
+
+[Thu Apr 30 10:06:04 2020]
+rule create_batch_file:
+    output: analysis/LDNe/batch/ag_batch_BFcol_X.txt
+    jobid: 101
+    wildcards: pop=BFcol, chrom=X
+
+[Thu Apr 30 10:06:04 2020]
+rule create_batch_file:
+    output: analysis/LDNe/batch/ag_batch_CMgam_2R.txt
+    jobid: 123
+    wildcards: pop=CMgam, chrom=2R
+
+[Thu Apr 30 10:06:04 2020]
+rule create_batch_file:
+    output: analysis/LDNe/batch/ag_batch_GHcol_X.txt
+    jobid: 86
+    wildcards: pop=GHcol, chrom=X
+
+[Thu Apr 30 10:06:04 2020]
+rule Zarr_to_LDNe:
+    input: ../data/ag1000g.phase2.ar1.pass/, ../data/reference/Anopheles-gambiae-PEST_BASEFEATURES_AgamP4.12.gff3, ../data/samples.meta.txt
+    output: data/dat/GHcol_2L.dat, data/dat/GHcol_2R.dat, data/dat/GHcol_3L.dat, data/dat/GHcol_3R.dat, data/dat/GHcol_X.dat, data/dat/GHgam_2L.dat, data/dat/GHgam_2R.dat, data/dat/GHgam_3L.dat, data/dat/GHgam_3R.dat, data/dat/GHgam_X.dat, data/dat/BFgam_2L.dat, data/dat/BFgam_2R.dat, data/dat/BFgam_3L.dat, data/dat/BFgam_3R.dat, data/dat/BFgam_X.dat, data/dat/BFcol_2L.dat, data/dat/BFcol_2R.dat, data/dat/BFcol_3L.dat, data/dat/BFcol_3R.dat, data/dat/BFcol_X.dat, data/dat/UGgam_2L.dat, data/dat/UGgam_2R.dat, data/dat/UGgam_3L.dat, data/dat/UGgam_3R.dat, data/dat/UGgam_X.dat, data/dat/GM_2L.dat, data/dat/GM_2R.dat, data/dat/GM_3L.dat, data/dat/GM_3R.dat, data/dat/GM_X.dat, data/dat/GW_2L.dat, data/dat/GW_2R.dat, data/dat/GW_3L.dat, data/dat/GW_3R.dat, data/dat/GW_X.dat, data/dat/KE_2L.dat, data/dat/KE_2R.dat, data/dat/KE_3L.dat, data/dat/KE_3R.dat, data/dat/KE_X.dat, data/dat/CMgam_2L.dat, data/dat/CMgam_2R.dat, data/dat/CMgam_3L.dat, data/dat/CMgam_3R.dat, data/dat/CMgam_X.dat, data/dat/FRgam_2L.dat, data/dat/FRgam_2R.dat, data/dat/FRgam_3L.dat, data/dat/FRgam_3R.dat, data/dat/FRgam_X.dat, data/dat/GQgam_2L.dat, data/dat/GQgam_2R.dat, data/dat/GQgam_3L.dat, data/dat/GQgam_3R.dat, data/dat/GQgam_X.dat, data/dat/AOcol_2L.dat, data/dat/AOcol_2R.dat, data/dat/AOcol_3L.dat, data/dat/AOcol_3R.dat, data/dat/AOcol_X.dat, data/dat/GAgam_2L.dat, data/dat/GAgam_2R.dat, data/dat/GAgam_3L.dat, data/dat/GAgam_3R.dat, data/dat/GAgam_X.dat, data/dat/GNgam_2L.dat, data/dat/GNgam_2R.dat, data/dat/GNgam_3L.dat, data/dat/GNgam_3R.dat, data/dat/GNgam_X.dat, data/dat/GNcol_2L.dat, data/dat/GNcol_2R.dat, data/dat/GNcol_3L.dat, data/dat/GNcol_3R.dat, data/dat/GNcol_X.dat, data/dat/CIcol_2L.dat, data/dat/CIcol_2R.dat, data/dat/CIcol_3L.dat, data/dat/CIcol_3R.dat, data/dat/CIcol_X.dat
+    log: logs/Zarr_to_LDNe/Zarr_to_LDNe.log
+    jobid: 81
+
+[Thu Apr 30 10:06:05 2020]
+Finished job 123.
+1 of 130 steps (0.77%) done
+
+[Thu Apr 30 10:06:05 2020]
+rule create_batch_file:
+    output: analysis/LDNe/batch/ag_batch_GHgam_X.txt
+    jobid: 91
+    wildcards: pop=GHgam, chrom=X
+
+[Thu Apr 30 10:06:05 2020]
+Finished job 86.
+2 of 130 steps (2%) done
+
+[Thu Apr 30 10:06:05 2020]
+rule create_batch_file:
+    output: analysis/LDNe/batch/ag_batch_GAgam_2L.txt
+    jobid: 142
+    wildcards: pop=GAgam, chrom=2L
+
+[Thu Apr 30 10:06:06 2020]
+Finished job 101.
+3 of 130 steps (2%) done
+
+[Thu Apr 30 10:06:06 2020]
+rule create_batch_file:
+    output: analysis/LDNe/batch/ag_batch_GW_2R.txt
+    jobid: 113
+    wildcards: pop=GW, chrom=2R
+
+[Thu Apr 30 10:06:07 2020]
+Finished job 142.
+4 of 130 steps (3%) done
+
+[Thu Apr 30 10:06:07 2020]
+rule create_batch_file:
+    output: analysis/LDNe/batch/ag_batch_GM_X.txt
+    jobid: 111
+    wildcards: pop=GM, chrom=X
+
+[Thu Apr 30 10:06:07 2020]
+Finished job 91.
+5 of 130 steps (4%) done
+
+[Thu Apr 30 10:06:07 2020]
+rule create_batch_file:
+    output: analysis/LDNe/batch/ag_batch_GHcol_2L.txt
+    jobid: 82
+    wildcards: pop=GHcol, chrom=2L
+
+[Thu Apr 30 10:06:07 2020]
+Finished job 113.
+6 of 130 steps (5%) done
+
+[Thu Apr 30 10:06:07 2020]
+rule create_batch_file:
+    output: analysis/LDNe/batch/ag_batch_BFcol_2L.txt
+    jobid: 97
+    wildcards: pop=BFcol, chrom=2L
+
+[Thu Apr 30 10:06:08 2020]
+Finished job 82.
+7 of 130 steps (5%) done
+
+[Thu Apr 30 10:06:08 2020]
+rule create_batch_file:
+    output: analysis/LDNe/batch/ag_batch_FRgam_2R.txt
+    jobid: 128
+    wildcards: pop=FRgam, chrom=2R
+
+[Thu Apr 30 10:06:08 2020]
+Finished job 97.
+8 of 130 steps (6%) done
+
+[Thu Apr 30 10:06:08 2020]
+rule create_batch_file:
+    output: analysis/LDNe/batch/ag_batch_GM_2L.txt
+    jobid: 107
+    wildcards: pop=GM, chrom=2L
+
+[Thu Apr 30 10:06:08 2020]
+Finished job 111.
+9 of 130 steps (7%) done
+
+[Thu Apr 30 10:06:08 2020]
+rule create_batch_file:
+    output: analysis/LDNe/batch/ag_batch_AOcol_2R.txt
+    jobid: 138
+    wildcards: pop=AOcol, chrom=2R
+
+[Thu Apr 30 10:06:09 2020]
+Finished job 128.
+10 of 130 steps (8%) done
+
+[Thu Apr 30 10:06:09 2020]
+rule create_batch_file:
+    output: analysis/LDNe/batch/ag_batch_GAgam_X.txt
+    jobid: 146
+    wildcards: pop=GAgam, chrom=X
+
+[Thu Apr 30 10:06:09 2020]
+Finished job 138.
+11 of 130 steps (8%) done
+
+[Thu Apr 30 10:06:09 2020]
+rule create_batch_file:
+    output: analysis/LDNe/batch/ag_batch_GHgam_2L.txt
+    jobid: 87
+    wildcards: pop=GHgam, chrom=2L
+
+[Thu Apr 30 10:06:09 2020]
+Finished job 107.
+12 of 130 steps (9%) done
+
+[Thu Apr 30 10:06:09 2020]
+rule create_batch_file:
+    output: analysis/LDNe/batch/ag_batch_CIcol_X.txt
+    jobid: 161
+    wildcards: pop=CIcol, chrom=X
+
+[Thu Apr 30 10:06:10 2020]
+Finished job 87.
+13 of 130 steps (10%) done
+[Thu Apr 30 10:06:10 2020]
+Finished job 146.
+14 of 130 steps (11%) done
+
+[Thu Apr 30 10:06:10 2020]
+rule create_batch_file:
+    output: analysis/LDNe/batch/ag_batch_KE_2L.txt
+    jobid: 117
+    wildcards: pop=KE, chrom=2L
+
+[Thu Apr 30 10:06:10 2020]
+rule create_batch_file:
+    output: analysis/LDNe/batch/ag_batch_UGgam_2R.txt
+    jobid: 103
+    wildcards: pop=UGgam, chrom=2R
+
+[Thu Apr 30 10:06:10 2020]
+Finished job 161.
+15 of 130 steps (12%) done
+
+[Thu Apr 30 10:06:10 2020]
+rule create_batch_file:
+    output: analysis/LDNe/batch/ag_batch_BFgam_2R.txt
+    jobid: 93
+    wildcards: pop=BFgam, chrom=2R
+
+[Thu Apr 30 10:06:12 2020]
+Finished job 117.
+16 of 130 steps (12%) done
+
+[Thu Apr 30 10:06:12 2020]
+rule create_batch_file:
+    output: analysis/LDNe/batch/ag_batch_GQgam_X.txt
+    jobid: 136
+    wildcards: pop=GQgam, chrom=X
+
+[Thu Apr 30 10:06:12 2020]
+Finished job 103.
+17 of 130 steps (13%) done
+[Thu Apr 30 10:06:12 2020]
+Finished job 93.
+18 of 130 steps (14%) done
+
+[Thu Apr 30 10:06:12 2020]
+rule create_batch_file:
+    output: analysis/LDNe/batch/ag_batch_GNcol_X.txt
+    jobid: 156
+    wildcards: pop=GNcol, chrom=X
+
+[Thu Apr 30 10:06:12 2020]
+rule create_batch_file:
+    output: analysis/LDNe/batch/ag_batch_GNgam_2R.txt
+    jobid: 148
+    wildcards: pop=GNgam, chrom=2R
+
+[Thu Apr 30 10:06:13 2020]
+Finished job 156.
+19 of 130 steps (15%) done
+
+[Thu Apr 30 10:06:13 2020]
+rule create_batch_file:
+    output: analysis/LDNe/batch/ag_batch_GNcol_2L.txt
+    jobid: 152
+    wildcards: pop=GNcol, chrom=2L
+
+[Thu Apr 30 10:06:13 2020]
+Finished job 136.
+20 of 130 steps (15%) done
+
+[Thu Apr 30 10:06:13 2020]
+rule create_batch_file:
+    output: analysis/LDNe/batch/ag_batch_GQgam_2L.txt
+    jobid: 132
+    wildcards: pop=GQgam, chrom=2L
+
+[Thu Apr 30 10:06:13 2020]
+Finished job 148.
+21 of 130 steps (16%) done
+
+[Thu Apr 30 10:06:13 2020]
+rule create_batch_file:
+    output: analysis/LDNe/batch/ag_batch_KE_X.txt
+    jobid: 121
+    wildcards: pop=KE, chrom=X
+
+[Thu Apr 30 10:06:14 2020]
+Finished job 152.
+22 of 130 steps (17%) done
+
+[Thu Apr 30 10:06:14 2020]
+rule create_batch_file:
+    output: analysis/LDNe/batch/ag_batch_CIcol_2L.txt
+    jobid: 157
+    wildcards: pop=CIcol, chrom=2L
+
+[Thu Apr 30 10:06:14 2020]
+Finished job 121.
+23 of 130 steps (18%) done
+
+[Thu Apr 30 10:06:14 2020]
+rule create_batch_file:
+    output: analysis/LDNe/batch/ag_batch_GNgam_X.txt
+    jobid: 151
+    wildcards: pop=GNgam, chrom=X
+
+[Thu Apr 30 10:06:14 2020]
+Finished job 132.
+24 of 130 steps (18%) done
+
+[Thu Apr 30 10:06:14 2020]
+rule create_batch_file:
+    output: analysis/LDNe/batch/ag_batch_CIcol_2R.txt
+    jobid: 158
+    wildcards: pop=CIcol, chrom=2R
+
+[Thu Apr 30 10:06:16 2020]
+Finished job 151.
+25 of 130 steps (19%) done
+
+[Thu Apr 30 10:06:16 2020]
+rule create_batch_file:
+    output: analysis/LDNe/batch/ag_batch_GNcol_2R.txt
+    jobid: 153
+    wildcards: pop=GNcol, chrom=2R
+
+[Thu Apr 30 10:06:16 2020]
+Finished job 157.
+26 of 130 steps (20%) done
+
+[Thu Apr 30 10:06:16 2020]
+rule create_batch_file:
+    output: analysis/LDNe/batch/ag_batch_BFgam_X.txt
+    jobid: 96
+    wildcards: pop=BFgam, chrom=X
+
+[Thu Apr 30 10:06:16 2020]
+Finished job 158.
+27 of 130 steps (21%) done
+
+[Thu Apr 30 10:06:16 2020]
+rule create_batch_file:
+    output: analysis/LDNe/batch/ag_batch_UGgam_X.txt
+    jobid: 106
+    wildcards: pop=UGgam, chrom=X
+
+[Thu Apr 30 10:06:17 2020]
+Finished job 153.
+28 of 130 steps (22%) done
+
+[Thu Apr 30 10:06:17 2020]
+rule create_batch_file:
+    output: analysis/LDNe/batch/ag_batch_GQgam_2R.txt
+    jobid: 133
+    wildcards: pop=GQgam, chrom=2R
+
+[Thu Apr 30 10:06:17 2020]
+Finished job 106.
+29 of 130 steps (22%) done
+
+[Thu Apr 30 10:06:17 2020]
+rule create_batch_file:
+    output: analysis/LDNe/batch/ag_batch_GNgam_2L.txt
+    jobid: 147
+    wildcards: pop=GNgam, chrom=2L
+
+[Thu Apr 30 10:06:17 2020]
+Finished job 96.
+30 of 130 steps (23%) done
+
+[Thu Apr 30 10:06:17 2020]
+rule create_batch_file:
+    output: analysis/LDNe/batch/ag_batch_UGgam_2L.txt
+    jobid: 102
+    wildcards: pop=UGgam, chrom=2L
+
+[Thu Apr 30 10:06:18 2020]
+Finished job 147.
+31 of 130 steps (24%) done
+
+[Thu Apr 30 10:06:18 2020]
+rule create_batch_file:
+    output: analysis/LDNe/batch/ag_batch_BFgam_2L.txt
+    jobid: 92
+    wildcards: pop=BFgam, chrom=2L
+
+[Thu Apr 30 10:06:19 2020]
+Finished job 102.
+32 of 130 steps (25%) done
+
+[Thu Apr 30 10:06:19 2020]
+rule create_batch_file:
+    output: analysis/LDNe/batch/ag_batch_KE_2R.txt
+    jobid: 118
+    wildcards: pop=KE, chrom=2R
+
+[Thu Apr 30 10:06:19 2020]
+Finished job 133.
+33 of 130 steps (25%) done
+
+[Thu Apr 30 10:06:19 2020]
+rule create_batch_file:
+    output: analysis/LDNe/batch/ag_batch_GHgam_2R.txt
+    jobid: 88
+    wildcards: pop=GHgam, chrom=2R
+
+[Thu Apr 30 10:06:20 2020]
+Finished job 118.
+34 of 130 steps (26%) done
+
+[Thu Apr 30 10:06:20 2020]
+rule create_batch_file:
+    output: analysis/LDNe/batch/ag_batch_GM_2R.txt
+    jobid: 108
+    wildcards: pop=GM, chrom=2R
+
+[Thu Apr 30 10:06:20 2020]
+Finished job 92.
+35 of 130 steps (27%) done
+
+[Thu Apr 30 10:06:20 2020]
+rule create_batch_file:
+    output: analysis/LDNe/batch/ag_batch_GW_X.txt
+    jobid: 116
+    wildcards: pop=GW, chrom=X
+
+[Thu Apr 30 10:06:20 2020]
+Finished job 88.
+36 of 130 steps (28%) done
+
+[Thu Apr 30 10:06:20 2020]
+rule create_batch_file:
+    output: analysis/LDNe/batch/ag_batch_AOcol_2L.txt
+    jobid: 137
+    wildcards: pop=AOcol, chrom=2L
+
+[Thu Apr 30 10:06:21 2020]
+Finished job 108.
+37 of 130 steps (28%) done
+
+[Thu Apr 30 10:06:21 2020]
+rule create_batch_file:
+    output: analysis/LDNe/batch/ag_batch_BFcol_2R.txt
+    jobid: 98
+    wildcards: pop=BFcol, chrom=2R
+
+[Thu Apr 30 10:06:21 2020]
+Finished job 137.
+38 of 130 steps (29%) done
+
+[Thu Apr 30 10:06:21 2020]
+rule create_batch_file:
+    output: analysis/LDNe/batch/ag_batch_FRgam_2L.txt
+    jobid: 127
+    wildcards: pop=FRgam, chrom=2L
+
+[Thu Apr 30 10:06:21 2020]
+Finished job 116.
+39 of 130 steps (30%) done
+
+[Thu Apr 30 10:06:21 2020]
+rule create_batch_file:
+    output: analysis/LDNe/batch/ag_batch_GHcol_2R.txt
+    jobid: 83
+    wildcards: pop=GHcol, chrom=2R
+
+[Thu Apr 30 10:06:22 2020]
+Finished job 98.
+40 of 130 steps (31%) done
+
+[Thu Apr 30 10:06:23 2020]
+rule create_batch_file:
+    output: analysis/LDNe/batch/ag_batch_CMgam_X.txt
+    jobid: 126
+    wildcards: pop=CMgam, chrom=X
+
+[Thu Apr 30 10:06:23 2020]
+Finished job 127.
+41 of 130 steps (32%) done
+
+[Thu Apr 30 10:06:23 2020]
+rule create_batch_file:
+    output: analysis/LDNe/batch/ag_batch_GAgam_2R.txt
+    jobid: 143
+    wildcards: pop=GAgam, chrom=2R
+
+[Thu Apr 30 10:06:23 2020]
+Finished job 83.
+42 of 130 steps (32%) done
+
+[Thu Apr 30 10:06:23 2020]
+rule create_batch_file:
+    output: analysis/LDNe/batch/ag_batch_GW_2L.txt
+    jobid: 112
+    wildcards: pop=GW, chrom=2L
+
+[Thu Apr 30 10:06:24 2020]
+Finished job 126.
+43 of 130 steps (33%) done
+
+[Thu Apr 30 10:06:24 2020]
+rule create_batch_file:
+    output: analysis/LDNe/batch/ag_batch_AOcol_X.txt
+    jobid: 141
+    wildcards: pop=AOcol, chrom=X
+
+[Thu Apr 30 10:06:24 2020]
+Finished job 143.
+44 of 130 steps (34%) done
+
+[Thu Apr 30 10:06:24 2020]
+rule create_batch_file:
+    output: analysis/LDNe/batch/ag_batch_CMgam_2L.txt
+    jobid: 122
+    wildcards: pop=CMgam, chrom=2L
+
+[Thu Apr 30 10:06:24 2020]
+Finished job 112.
+45 of 130 steps (35%) done
+
+[Thu Apr 30 10:06:24 2020]
+rule create_batch_file:
+    output: analysis/LDNe/batch/ag_batch_FRgam_X.txt
+    jobid: 131
+    wildcards: pop=FRgam, chrom=X
+
+[Thu Apr 30 10:06:25 2020]
+Finished job 141.
+46 of 130 steps (35%) done
+[Thu Apr 30 10:06:25 2020]
+Finished job 122.
+47 of 130 steps (36%) done
+[Thu Apr 30 10:06:26 2020]
+Finished job 131.
+48 of 130 steps (37%) done
+Terminating processes on user request, this might take some time.
+[Thu Apr 30 10:25:25 2020]
+Error in rule Zarr_to_LDNe:
+    jobid: 81
+    output: data/dat/GHcol_2L.dat, data/dat/GHcol_2R.dat, data/dat/GHcol_3L.dat, data/dat/GHcol_3R.dat, data/dat/GHcol_X.dat, data/dat/GHgam_2L.dat, data/dat/GHgam_2R.dat, data/dat/GHgam_3L.dat, data/dat/GHgam_3R.dat, data/dat/GHgam_X.dat, data/dat/BFgam_2L.dat, data/dat/BFgam_2R.dat, data/dat/BFgam_3L.dat, data/dat/BFgam_3R.dat, data/dat/BFgam_X.dat, data/dat/BFcol_2L.dat, data/dat/BFcol_2R.dat, data/dat/BFcol_3L.dat, data/dat/BFcol_3R.dat, data/dat/BFcol_X.dat, data/dat/UGgam_2L.dat, data/dat/UGgam_2R.dat, data/dat/UGgam_3L.dat, data/dat/UGgam_3R.dat, data/dat/UGgam_X.dat, data/dat/GM_2L.dat, data/dat/GM_2R.dat, data/dat/GM_3L.dat, data/dat/GM_3R.dat, data/dat/GM_X.dat, data/dat/GW_2L.dat, data/dat/GW_2R.dat, data/dat/GW_3L.dat, data/dat/GW_3R.dat, data/dat/GW_X.dat, data/dat/KE_2L.dat, data/dat/KE_2R.dat, data/dat/KE_3L.dat, data/dat/KE_3R.dat, data/dat/KE_X.dat, data/dat/CMgam_2L.dat, data/dat/CMgam_2R.dat, data/dat/CMgam_3L.dat, data/dat/CMgam_3R.dat, data/dat/CMgam_X.dat, data/dat/FRgam_2L.dat, data/dat/FRgam_2R.dat, data/dat/FRgam_3L.dat, data/dat/FRgam_3R.dat, data/dat/FRgam_X.dat, data/dat/GQgam_2L.dat, data/dat/GQgam_2R.dat, data/dat/GQgam_3L.dat, data/dat/GQgam_3R.dat, data/dat/GQgam_X.dat, data/dat/AOcol_2L.dat, data/dat/AOcol_2R.dat, data/dat/AOcol_3L.dat, data/dat/AOcol_3R.dat, data/dat/AOcol_X.dat, data/dat/GAgam_2L.dat, data/dat/GAgam_2R.dat, data/dat/GAgam_3L.dat, data/dat/GAgam_3R.dat, data/dat/GAgam_X.dat, data/dat/GNgam_2L.dat, data/dat/GNgam_2R.dat, data/dat/GNgam_3L.dat, data/dat/GNgam_3R.dat, data/dat/GNgam_X.dat, data/dat/GNcol_2L.dat, data/dat/GNcol_2R.dat, data/dat/GNcol_3L.dat, data/dat/GNcol_3R.dat, data/dat/GNcol_X.dat, data/dat/CIcol_2L.dat, data/dat/CIcol_2R.dat, data/dat/CIcol_3L.dat, data/dat/CIcol_3R.dat, data/dat/CIcol_X.dat
+    log: logs/Zarr_to_LDNe/Zarr_to_LDNe.log (check log file(s) for error message)
+    shell:
+        python analysis/scripts/Zarr_to_LDNe.py --n 20000 --chroms 2L 2R 3L 3R X --zarr ../data/ag1000g.phase2.ar1.pass/ --gff ../data/reference/Anopheles-gambiae-PEST_BASEFEATURES_AgamP4.12.gff3 --samples ../data/samples.meta.txt 2> logs/Zarr_to_LDNe/Zarr_to_LDNe.log
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Removing output files of failed job Zarr_to_LDNe since they might be corrupted:
+data/dat/GHcol_2L.dat, data/dat/GHcol_2R.dat, data/dat/GHcol_3L.dat, data/dat/GHgam_2L.dat, data/dat/GHgam_2R.dat, data/dat/GHgam_3L.dat, data/dat/BFgam_2L.dat, data/dat/BFgam_2R.dat, data/dat/BFgam_3L.dat, data/dat/BFcol_2L.dat, data/dat/BFcol_2R.dat, data/dat/BFcol_3L.dat, data/dat/UGgam_2L.dat, data/dat/UGgam_2R.dat, data/dat/UGgam_3L.dat, data/dat/GM_2L.dat, data/dat/GM_2R.dat, data/dat/GM_3L.dat, data/dat/GW_2L.dat, data/dat/GW_2R.dat, data/dat/KE_2L.dat, data/dat/KE_2R.dat, data/dat/CMgam_2L.dat, data/dat/CMgam_2R.dat, data/dat/FRgam_2L.dat, data/dat/FRgam_2R.dat, data/dat/GQgam_2L.dat, data/dat/GQgam_2R.dat, data/dat/AOcol_2L.dat, data/dat/AOcol_2R.dat, data/dat/GAgam_2L.dat, data/dat/GAgam_2R.dat, data/dat/GNgam_2L.dat, data/dat/GNgam_2R.dat, data/dat/GNcol_2L.dat, data/dat/GNcol_2R.dat, data/dat/CIcol_2L.dat, data/dat/CIcol_2R.dat
+Complete log: /home/sanj/ag1000g/Ne_Ag/.snakemake/log/2020-04-30T100604.331996.snakemake.log

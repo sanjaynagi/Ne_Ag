@@ -1,41 +1,34 @@
 Output from NeEstimator v2.1
-Starting time: Sun Jan 19 04:49:57 2020
+Starting time: Thu Apr 30 12:42:39 2020
 Input File #1: "data/dat/CIcol_3R.dat"
 
-Number of Loci = 10000
-
-Non-polymorphic loci:   495,   496,   512,   549,   579,   590,  1160,  1171,
-         1526,  1639,  1715,  1982,  2213,  2216,  2375,  2376,  2725,  3775,
-         4153,  4211,  4315,  4366,  4438,  4454,  4630,  4657,  4784,  4873,
-         4928,  4950,  5098,  5112,  5290,  5376,  5604,  6069,  7020,  7325,
-         7641,  7656,  7744,  7927,  8149,  8316,  9389, 10000
-Total non-polymorphic = 46
+Number of Loci = 20000
 
 LD mating model: Random
 
 Population     1 [CIcol_3R]  (Number of Individuals = 71)
 ****************
---------------------------------------------------------------------------
-Lowest Allele Frequency Used     0.050       0.020       0.010         0+
---------------------------------------------------------------------------
+--------------------------------------
+Lowest Allele Frequency Used     0.050  
+--------------------------------------
 
 LINKAGE DISEQUILIBRIUM METHOD
 
-Harmonic Mean Sample Size =       71.0        71.0        71.0        71.0
-Independent Comparisons =    5143423    17001542    27020062    55949085
-OverAll r^2 =                 0.014823    0.014760    0.014743    0.014693
-Expected r^2 Sample =         0.014720    0.014720    0.014719    0.014719
-Estimated Ne^ =                 3204.5      8256.3     14100.0    Infinite
+Harmonic Mean Sample Size =       71.0
+Independent Comparisons =   21199157
+OverAll r^2 =                 0.014793
+Expected r^2 Sample =         0.014717
+Estimated Ne^ =                 4402.1
 
 95% CIs for Ne^
-* Parametric                    2728.2      6626.0     10579.3    Infinite
-                                3880.6     10946.0     21123.8    Infinite
+* Parametric                    3938.3
+                                4989.2
 
-* JackKnife on Samples          2325.1      5408.3      7613.4    Infinite
-                                5139.5     17391.8     94037.3    Infinite
+* JackKnife on Samples          3375.8
+                                6317.7
 
-**************************************************************************
+**************************************
 
-Ending time: Sun Jan 19 05:14:46 2020
+Ending time: Thu Apr 30 12:47:23 2020
 -------------------------------------
 

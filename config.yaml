@@ -1,0 +1,6 @@
+zarr:
+  "../data/ag1000g.phase2.ar1.pass/"
+gff:
+  "../data/reference/Anopheles-gambiae-PEST_BASEFEATURES_AgamP4.12.gff3"
+samples:
+  "../data/samples.meta.txt"

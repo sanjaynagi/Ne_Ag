@@ -1,0 +1,10 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+data/dat
+data/regions/
+logs/
+analysis/ibdne/IBDNe_Harmonic_means.txt
+analysis/LDNe
+docs/*.pdf

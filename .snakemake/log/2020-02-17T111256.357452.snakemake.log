@@ -1,0 +1,42 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	Zarr_to_LDNe
+	1
+
+[Mon Feb 17 11:12:56 2020]
+rule Zarr_to_LDNe:
+    input: ../data/ag1000g.phase2.ar1.pass/, ../data/reference/Anopheles-gambiae-PEST_BASEFEATURES_AgamP4.12.gff3, ../data/samples.meta.txt
+    output: data/dat
+    log: logs/Zarr_to_LDNe/Zarr_to_LDNe.log
+    jobid: 0
+
+[Mon Feb 17 11:12:57 2020]
+Error in rule Zarr_to_LDNe:
+    jobid: 0
+    output: data/dat
+    log: logs/Zarr_to_LDNe/Zarr_to_LDNe.log (check log file(s) for error message)
+    shell:
+        python analysis/scripts/Zarr_to_LDNe.py -n 10000 --chroms 3L 3R --zarr ../data/ag1000g.phase2.ar1.pass/ --gff ../data/reference/Anopheles-gambiae-PEST_BASEFEATURES_AgamP4.12.gff3 --samples        ox_code         src_code population  ... sex n_sequences mean_coverage
+0     AA0040-C  Twifo_Praso__E2      GHcol  ...   F    95033368         30.99
+1     AA0041-C  Twifo_Praso__H3      GHcol  ...   F    95843804         31.70
+2     AA0042-C      Takoradi_C7      GHcol  ...   F   107420666         35.65
+3     AA0043-C      Takoradi_H8      GHcol  ...   F    95993752         29.46
+4     AA0044-C     Takoradi_D10      GHcol  ...   F   103044262         33.67
+...        ...              ...        ...  ...  ..         ...           ...
+1137  AY0087-C       Tia_dPM_46      CIcol  ...   F   101458232         32.56
+1138  AY0088-C       Tia_dPM_52      CIcol  ...   F    95140584         30.75
+1139  AY0089-C        Tia_aPM_4      CIcol  ...   F    92383724         29.04
+1140  AY0090-C       Tia_aPM_13      CIcol  ...   F    96210618         30.94
+1141  AY0091-C       Tia_aPM_37      CIcol  ...   F    95973872         31.30
+
+[1142 rows x 12 columns] --pops ['GHcol' 'GHgam' 'BFgam' 'BFcol' 'UGgam' 'GM' 'GW' 'KE' 'CMgam' 'FRgam'
+ 'GQgam' 'AOcol' 'GAgam' 'GNgam' 'GNcol' 'CIcol'] 2> logs/Zarr_to_LDNe/Zarr_to_LDNe.log
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /home/sanj/ag1000g/Ne_Ag/.snakemake/log/2020-02-17T111256.357452.snakemake.log

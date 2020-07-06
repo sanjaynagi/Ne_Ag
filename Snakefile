@@ -1,15 +1,11 @@
 import pandas as pd
 samples = pd.read_csv("~/ag1000g/data/samples.meta.txt", sep="\t")
 pops = samples.population.unique()
-chroms=['3L', '3R']
+chroms=['2L', '2R','3L', '3R', 'X']
 
 configfile:"config.yaml"
 
 rule all:
-	input: 
-		expand("analysis/ibdne/{pop}_ibdne.ne", pop=pops)
-
-rule all_ldne:
 	input:
 		expand("analysis/LDNe/Ag_LDNe_{pop}_{chrom}.out", pop=pops, chrom=chroms)
 
@@ -79,18 +75,16 @@ rule Zarr_to_LDNe:
 	log:
 		"logs/Zarr_to_LDNe/Zarr_to_LDNe.log"
 	params:
-		n = 10000,
+		nSNPs = 20000,
 	shell:
-		"python analysis/scripts/Zarr_to_LDNe.py --n {params.n} --zarr {input.zarr} --gff {input.gff} --samples {input.samples} 2> {log}"
+		"python analysis/scripts/Zarr_to_LDNe.py --n {params.nSNPs} --chroms {chroms} --zarr {input.zarr} --gff {input.gff} --samples {input.samples} 2> {log}"
 
 rule create_batch_file:
 	output:
 		"analysis/LDNe/batch/ag_batch_{pop}_{chrom}.txt"
-	group:
-		"LDNe"
 	run:
 		with open(f'analysis/LDNe/batch/ag_batch_{wildcards.pop}_{wildcards.chrom}.txt', 'w') as batch_file:
-			batch_file.write(f'1\t0\n3\n0.05\t0.02\t0.01\n15\t0\t1\n1\n0\n0\n0\n0\nanalysis/LDNe/Ag_LDNe_{wildcards.pop}_{wildcards.chrom}.out\n')
+			batch_file.write(f'1\t0\n1\n0.05\t-1\n15\t0\t1\n1\n0\n0\n0\n0\nanalysis/LDNe/Ag_LDNe_{wildcards.pop}_{wildcards.chrom}.out\n')
 			batch_file.write(f"data/dat/{wildcards.pop}_{wildcards.chrom}.dat\n")
 			batch_file.write("*")
 			batch_file.close()
@@ -101,8 +95,8 @@ rule run_ldne:
 		batch="analysis/LDNe/batch/ag_batch_{pop}_{chrom}.txt"
 	output:
 		"analysis/LDNe/Ag_LDNe_{pop}_{chrom}.out"
-	group:"LDNe"
 	log:
 		"logs/ldne/{pop}_{chrom}.log"
 	shell:
 		"~/apps/NeEstimator/Ne2-1L c:{input.batch} 2> {log}"
+#move NeEstimator to analysis/scripts 
