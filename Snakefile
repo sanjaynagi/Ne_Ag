@@ -25,7 +25,6 @@ rule subset_vcfs:
 	shell:
 		"bcftools view --threads {threads} -r {params.region} -c {params.ac} -O {params.compression} -S {params.samples} /kwiat/vector/ag1000g/release/phase2.AR1/variation/main/vcf/pass/ag1000g.phase2.ar1.pass.{wildcards.chrom}.vcf.gz > {output} 2> {log}"		
 
-################ IBD ####################
 rule unzip_vcfs:
 	input:
 		"data/vcfs/{pop}_{chrom}.vcf.gz"
@@ -49,7 +48,6 @@ rule ibd_segments:
 	shell:
 		"java -jar ~/apps/ibdseq.r1206.jar gt={input} nthreads={threads} out=analysis/ibd/{wildcards.pop}_{wildcards.chrom} 2> {log}"
 
-################ Run IBDne #####################
 rule run_ibdne:
 	input:
 		gen_map = "data/Ag_genetic.map",
@@ -78,16 +76,6 @@ rule Zarr_to_LDNe:
 		nSNPs = 20000,
 	shell:
 		"python analysis/scripts/Zarr_to_LDNe.py --n {params.nSNPs} --chroms {chroms} --zarr {input.zarr} --gff {input.gff} --samples {input.samples} 2> {log}"
-
-rule create_batch_file:
-	output:
-		"analysis/LDNe/batch/ag_batch_{pop}_{chrom}.txt"
-	run:
-		with open(f'analysis/LDNe/batch/ag_batch_{wildcards.pop}_{wildcards.chrom}.txt', 'w') as batch_file:
-			batch_file.write(f'1\t0\n1\n0.05\t-1\n15\t0\t1\n1\n0\n0\n0\n0\nanalysis/LDNe/Ag_LDNe_{wildcards.pop}_{wildcards.chrom}.out\n')
-			batch_file.write(f"data/dat/{wildcards.pop}_{wildcards.chrom}.dat\n")
-			batch_file.write("*")
-			batch_file.close()
 
 rule run_ldne:
 	input:
