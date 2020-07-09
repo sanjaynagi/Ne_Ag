@@ -4,9 +4,11 @@
 .Ruserdata
 <<<<<<< HEAD
 data/dat
+data/*gff*
 data/regions/
 .snakemake/
 logs/
+analysis/scripts/Ne*
 analysis/ibdne/IBDNe_Harmonic_means.txt
 analysis/LDNe
 docs/*.pdf

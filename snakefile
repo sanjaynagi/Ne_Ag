@@ -1,13 +1,61 @@
 import pandas as pd
-samples = pd.read_csv("~/ag1000g/data/samples.meta.txt", sep="\t")
-pops = samples.population.unique()
-chroms=['2L', '2R','3L', '3R', 'X']
 
-configfile:"config.yaml"
+chroms=['3L', '3R']
+#read in names
+LDNe_list = pd.read_csv("data/Phase3.LDNe.list")
+LDNe_pops = LDNe_list['pop']
 
 rule all:
 	input:
-		expand("analysis/LDNe/Ag_LDNe_{pop}_{chrom}.out", pop=pops, chrom=chroms)
+		"data/dat/Zarr2dat.done",
+		expand("analysis/LDNe/Ag_LDNe_{name}.{chrom}.out", name=LDNe_pops, chrom=chroms)
+
+############## LDNe ############
+############### noncoding, downsample to genepop and dat using the Zarr ############
+
+rule Zarr2Dat:
+	output:
+		touch("data/dat/Zarr2dat.{chrom}.done"),
+		expand("analysis/LDNe/batch/{name}.{{chrom}}.batch.txt", name=LDNe_pops),
+		expand("data/dat/{name}.{{chrom}}.dat", name=LDNe_pops)
+	log:
+		"logs/Zarr2Dat/Zarr_to_LDNe_{chrom}.log"
+	params:
+		nSNPs = 20000,
+		localpath = "/home/sanj/ag1000g/data/phase3/",
+		manifest = "data/Ag1000g.phase3.manifest.full.tsv",
+		gff = "data/An.gambiae-PEST-BASEFEATURES_agamP4.12.gff3.gz"
+	shell:
+		"python analysis/scripts/Zarr_to_LDNe.py --n {params.nSNPs} --chroms {wildcards.chrom} --localpath {params.localpath} --gff {params.gff} --manifest {params.manifest} 2> {log}"
+
+rule RunLDNe:
+	input:
+		marker = "data/dat/Zarr2dat.{chrom}.done",
+		dat="data/dat/{name}.{chrom}.dat",
+		batch="analysis/LDNe/batch/{name}.{chrom}.batch.txt"
+	output:
+		"analysis/LDNe/Ag_LDNe_{name}.{chrom}.out"
+	log:
+		"logs/LDNe/{name}.{chrom}.log"
+	shell:
+		"analysis/scripts/Ne2-1L c:{input.batch} 2> {log}"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+############## IBDNE ######################
 
 ############# subset vcfs #############
 
@@ -59,32 +107,3 @@ rule run_ibdne:
 	threads:8
 	shell:
 		"cat {input.ibd} | java -jar ~/apps/ibdne.19Sep19.268.jar map={input.gen_map} out=analysis/ibdne/{wildcards.pop}_ibdne nthreads={threads} 2> {log}"
-
-############## LDNe ############
-############### noncoding, downsample to genepop and dat using the Zarr ############
-
-rule Zarr_to_LDNe:
-	input:
-		zarr = config['zarr'],
-		gff = config['gff'],
-		samples = config['samples']
-	output:
-		expand("data/dat/{pop}_{chrom}.dat", pop=pops, chrom=chroms)
-	log:
-		"logs/Zarr_to_LDNe/Zarr_to_LDNe.log"
-	params:
-		nSNPs = 20000,
-	shell:
-		"python analysis/scripts/Zarr_to_LDNe.py --n {params.nSNPs} --chroms {chroms} --zarr {input.zarr} --gff {input.gff} --samples {input.samples} 2> {log}"
-
-rule run_ldne:
-	input:
-		dat="data/dat/{pop}_{chrom}.dat",
-		batch="analysis/LDNe/batch/ag_batch_{pop}_{chrom}.txt"
-	output:
-		"analysis/LDNe/Ag_LDNe_{pop}_{chrom}.out"
-	log:
-		"logs/ldne/{pop}_{chrom}.log"
-	shell:
-		"~/apps/NeEstimator/Ne2-1L c:{input.batch} 2> {log}"
-#move NeEstimator to analysis/scripts 
