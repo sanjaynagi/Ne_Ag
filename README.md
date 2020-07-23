@@ -3,7 +3,7 @@
 Analysis of Ag1000g populations looking at effective pop sizes.
 Initially, the idea was just to get used to using LDNe to estimate changes in effective population size, thinking about future genomic data from the LLINEUP trial.
 
-However, once the snakemake pipeline was written, it was not much more effort to apply this to all phase 2 populations, and then phase 3, this time split by collection location.  
+However, once the snakemake pipeline was written, it was not much more effort to apply this to all phase 2 populations, and then phase 3, this time split by collection location, with a minimum of 9 samples per location/species/year combination. Really I think a sample size of at least ~15 is necessary, but in phase 3  there was a couple of Kenyan populations of n=9 which I wanted to include. 
 
 the repo also contains some old code for running IBDNe. However, it is difficult to quantify short tracts of IBD as would be found in most mosquito populations, and thus I stopped this work.
 #### input
