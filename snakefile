@@ -1,13 +1,12 @@
 import pandas as pd
 
-chroms=['3L', '3R']
+chroms=['3L', '3R', '2L', '2R', 'X']
 #read in names
 LDNe_list = pd.read_csv("data/Phase3.LDNe.list")
 LDNe_pops = LDNe_list['pop']
 
 rule all:
 	input:
-		"data/dat/Zarr2dat.done",
 		expand("analysis/LDNe/Ag_LDNe_{name}.{chrom}.out", name=LDNe_pops, chrom=chroms)
 
 ############## LDNe ############
@@ -15,7 +14,6 @@ rule all:
 
 rule Zarr2Dat:
 	output:
-		touch("data/dat/Zarr2dat.{chrom}.done"),
 		expand("analysis/LDNe/batch/{name}.{{chrom}}.batch.txt", name=LDNe_pops),
 		expand("data/dat/{name}.{{chrom}}.dat", name=LDNe_pops)
 	log:
@@ -30,7 +28,6 @@ rule Zarr2Dat:
 
 rule RunLDNe:
 	input:
-		marker = "data/dat/Zarr2dat.{chrom}.done",
 		dat="data/dat/{name}.{chrom}.dat",
 		batch="analysis/LDNe/batch/{name}.{chrom}.batch.txt"
 	output:
